@@ -1,0 +1,44 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI 행동분류 및 낙상 판단 보조 시스템 파이프라인</title>
+  <desc id="desc">영상 입력, 키포인트 추출, 행동분류 모델, 낙상 판단 보조 근거를 연결한 포트폴리오용 기술 다이어그램</desc>
+  <rect width="960" height="640" rx="32" fill="#F8FAFC"/>
+  <rect x="72" y="72" width="816" height="496" rx="28" fill="white" stroke="#D9E2EC" stroke-width="2"/>
+  <rect x="112" y="118" width="188" height="132" rx="18" fill="#EAF2FF" stroke="#B9CBEA" stroke-width="2"/>
+  <rect x="386" y="118" width="188" height="132" rx="18" fill="#F4F7FA" stroke="#CFD8E3" stroke-width="2"/>
+  <rect x="660" y="118" width="188" height="132" rx="18" fill="#E8F7F5" stroke="#AFD8D2" stroke-width="2"/>
+  <rect x="112" y="360" width="188" height="132" rx="18" fill="#F4F7FA" stroke="#CFD8E3" stroke-width="2"/>
+  <rect x="386" y="360" width="188" height="132" rx="18" fill="#EAF2FF" stroke="#B9CBEA" stroke-width="2"/>
+  <rect x="660" y="360" width="188" height="132" rx="18" fill="#FFF7E6" stroke="#F2D7A6" stroke-width="2"/>
+  <path d="M300 184H368" stroke="#24476B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M356 172L370 184L356 196" stroke="#24476B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M574 184H642" stroke="#24476B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M630 172L644 184L630 196" stroke="#24476B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M754 250V328" stroke="#24476B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M742 316L754 330L766 316" stroke="#24476B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M660 426H592" stroke="#24476B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M604 414L590 426L604 438" stroke="#24476B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M386 426H318" stroke="#24476B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M330 414L316 426L330 438" stroke="#24476B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="206" cy="158" r="18" fill="#24476B"/>
+  <rect x="154" y="190" width="104" height="34" rx="10" fill="#24476B" opacity="0.88"/>
+  <circle cx="480" cy="150" r="15" fill="#24476B"/>
+  <path d="M480 167V204M480 178L448 196M480 178L512 196M480 204L454 230M480 204L506 230" stroke="#24476B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M720 204L744 164L772 205L798 144" stroke="#11806A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="720" cy="204" r="9" fill="#11806A"/>
+  <circle cx="744" cy="164" r="9" fill="#11806A"/>
+  <circle cx="772" cy="205" r="9" fill="#11806A"/>
+  <circle cx="798" cy="144" r="9" fill="#11806A"/>
+  <rect x="154" y="398" width="104" height="18" rx="9" fill="#24476B"/>
+  <rect x="154" y="430" width="78" height="18" rx="9" fill="#11806A"/>
+  <rect x="154" y="462" width="122" height="18" rx="9" fill="#D9A441"/>
+  <path d="M462 400H508C520.15 400 530 409.85 530 422V468H440V422C440 409.85 449.85 400 462 400Z" fill="#24476B" opacity="0.88"/>
+  <path d="M458 430H512M458 456H492" stroke="white" stroke-width="8" stroke-linecap="round"/>
+  <path d="M712 442C742 400 788 398 818 442" stroke="#D9A441" stroke-width="12" stroke-linecap="round"/>
+  <path d="M716 452L680 456L704 428" stroke="#D9A441" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="206" y="286" text-anchor="middle" fill="#18314F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Video Input</text>
+  <text x="480" y="286" text-anchor="middle" fill="#18314F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Keypoints</text>
+  <text x="754" y="286" text-anchor="middle" fill="#18314F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Features</text>
+  <text x="206" y="528" text-anchor="middle" fill="#18314F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Training Data</text>
+  <text x="480" y="528" text-anchor="middle" fill="#18314F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Model Review</text>
+  <text x="754" y="528" text-anchor="middle" fill="#18314F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Fall Evidence</text>
+</svg>
