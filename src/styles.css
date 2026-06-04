@@ -153,6 +153,26 @@ h3 {
   margin-top: 30px;
 }
 
+.heroTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  max-width: 820px;
+}
+
+.heroTagList span {
+  background: #eef7f5;
+  border: 1px solid #cae5de;
+  border-radius: 999px;
+  color: var(--teal);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+  padding: 7px 10px;
+}
+
 .primaryButton,
 .secondaryButton {
   align-items: center;
@@ -210,6 +230,12 @@ h3 {
   display: block;
   font-size: 19px;
   line-height: 1.4;
+}
+
+.heroPanel .panelSub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 3px;
 }
 
 .section {

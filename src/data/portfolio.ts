@@ -55,20 +55,27 @@ export type ExperienceItem = {
 export const portfolio = {
   person: {
     name: '변기국',
-    title: 'AI/Data · IT 서비스기획 지원자',
-    headline: '문제 정의부터 데이터 처리, 모델 검토, 서비스 화면 개선까지 연결하는 지원자입니다.',
+    title: 'AI/Data · DT/AX · 제조/반도체 데이터 활용 지원자',
+    headline:
+      '반도체 공정·장비 이해와 AI/Data 프로젝트 경험을 연결해 산업 현장의 문제를 데이터와 서비스로 풀어가는 지원자입니다.',
     location: 'South Korea',
+    education: '고려대학교 세종캠퍼스 지능형반도체공학과',
+    graduation: '2026.08 졸업예정',
+    minor: '첨단반도체공정장비융합전공',
+    gpa: '3.97 / 4.50',
+    toeic: 'TOEIC 935',
     email: 'gigukbyun@korea.ac.kr',
     phone: '010-5657-5945',
     github: 'https://github.com/hongsheeya',
+    desiredRoles: ['AI/Data', 'DT/AX', '제조·반도체 데이터 활용', '공정/장비 데이터 분석', 'AI 서비스 개발'],
   },
   about: {
     intro:
-      '데이터와 모델을 서비스 화면으로 연결하는 과정에 관심이 있습니다. AI 행동분류 프로젝트에서는 문제 정의, 데이터 처리, 모델 검토, 사용자 판단 보조 화면까지 함께 다뤘습니다.',
+      '지능형반도체공학 전공과 인턴십을 통해 공정·장비·데이터의 흐름을 익혔고, AI 행동분류 프로젝트에서는 데이터 정리, 모델 검토, 서비스 화면 개선, 결과 문서화까지 함께 다뤘습니다.',
     strengths: [
-      '문제를 기능 단위가 아니라 데이터, 모델, 화면, 운영 흐름의 연결로 정의합니다.',
-      '영상 데이터와 pose feature를 다루며 모델 입력 경로와 테스트 구조를 정리했습니다.',
-      '서비스기획 관점에서 개인정보 보호, 판단 근거 표시, 사용자 검증 흐름을 함께 고려합니다.',
+      '반도체 공정·패키징·플라즈마 세정 경험을 바탕으로 현장 데이터를 해석하려는 관점이 있습니다.',
+      'RandomForest, XGBoost, YOLO, MediaPipe 기반 프로젝트에서 데이터 구조와 모델 입력 feature를 정리했습니다.',
+      'AI 개발을 모델 학습에만 두지 않고 서비스 지연, 화면 UX, 결과 기록, 문서화까지 연결해 봅니다.',
     ],
   },
   featuredProjects: [
@@ -78,7 +85,7 @@ export const portfolio = {
       category: 'Main AI Project',
       summary:
         '실시간 자세와 움직임을 분석해 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 프로젝트입니다.',
-      role: 'AI/Data Pipeline · Frontend UX · System Improvement',
+      role: 'AI/Data Pipeline · Service UX · System Improvement',
       stack: ['MediaPipe', 'Pose Feature', 'XGBoost', 'RandomForest', 'React'],
       points: [
         '스켈레톤 중심 표시로 개인정보 노출 부담을 낮춤',
@@ -170,18 +177,33 @@ export const portfolio = {
   skills: [
     {
       title: 'AI/Data',
-      items: ['Pose Estimation', 'Feature Engineering', 'Model Evaluation', 'Dataset Design', 'Synthetic Data'],
+      items: ['RandomForest', 'XGBoost', 'YOLO/MediaPipe', 'pandas', 'scikit-learn', 'Model Evaluation'],
     },
     {
-      title: 'Engineering',
-      items: ['Python', 'TypeScript', 'React', 'Vite', 'Dashboard UI', 'Git/GitHub'],
+      title: 'Programming',
+      items: ['Python', 'JavaScript', 'TypeScript', 'HTML/CSS', 'SQL', 'React/Vite'],
     },
     {
-      title: 'Planning',
-      items: ['Problem Definition', 'User Flow', 'Service UX', 'Technical Documentation', 'Experiment Tracking'],
+      title: 'Development Environment',
+      items: ['WIZ', 'VS Code Remote SSH', 'OpenAI Codex', 'GitHub Copilot', 'Cursor AI', 'Git/GitHub'],
+    },
+    {
+      title: 'Domain',
+      items: ['반도체 공정', '반도체 패키징', '플라즈마 세정', 'DBD 전극', '공정 자동화', '데이터 전처리'],
     },
   ] satisfies SkillGroup[],
   experience: [
+    {
+      title: '주식회사 시즌 AI연구센터 연구전략팀 인턴',
+      period: '2026.03 ~ 현재',
+      description:
+        'WIZ 기반 풀스택 엔지니어링과 AI 연구개발 보조 업무를 수행하며 화면, 데이터 연동, 행동분류 모델 개발 자료를 함께 정리했습니다.',
+      points: [
+        'WIZ 기반 화면 구성, 기능 구현, 데이터 연동 구조 확인 및 수정',
+        '행동분류 모델 개발 프로젝트 데이터 정리, 변수 확인, 결과 기록',
+        '교통 AI 원천 데이터 전처리와 분석 가능한 변수 구조 정리',
+      ],
+    },
     {
       title: 'AI 행동분류 프로젝트 개선',
       period: '2026',
@@ -194,19 +216,40 @@ export const portfolio = {
       ],
     },
     {
-      title: 'FallAI 프로젝트 문서화와 검증 흐름 정리',
-      period: '현재',
+      title: '지비티아이앤씨 연구개발팀 인턴',
+      period: '2025.07 ~ 2025.08',
       description:
-        'AI 행동분류 및 낙상 판단 보조 시스템의 구현 화면, 파이프라인, 개선 근거를 한 페이지에서 검토할 수 있도록 정리했습니다.',
+        '반도체 플라즈마 세정과 자동화 로봇 관련 업무를 경험하며 실험 준비, 결과 정리, 장비 이해를 쌓았습니다.',
       points: [
-        'FallAI 콘솔 구동 화면을 메인 프로젝트 섹션에서 바로 확인 가능하도록 구성',
-        '문제 정의, 데이터 처리, 모델 검토, 시스템 개선 경험을 보고서형 흐름으로 정리',
+        'DBD 전극 제조 보조, 연구 실험 준비 및 결과 정리',
+        'AGV, AMR, 협동로봇 등 자동화 장비 업무 흐름 이해',
+        'Cursor AI를 활용한 반복 업무 효율화 프로그램 제작 경험',
+      ],
+    },
+    {
+      title: '반도체 패키징 기술 조사 및 리뷰 논문',
+      period: '학부 프로젝트',
+      description:
+        '캡스톤디자인에서 TGV 기반 첨단 패키징 기술을 조사하며 공정과 신호 전달 특성을 함께 검토했습니다.',
+      points: [
+        'TGV 기술 개념과 TSV 대비 유리 기판 기반 패키징 장점 조사',
+        '기생 커패시턴스 감소와 전기적 손실 완화 가능성 정리',
+      ],
+    },
+    {
+      title: '신설 학과 초대 학생회장',
+      period: '학부 재학 중 3년',
+      description:
+        '학과 운영 체계와 학생 문화를 만들어가며 의견 수렴, 교수진 협의, 행사 기획을 주도했습니다.',
+      points: [
+        '학생회 조직, 학과 회칙 제정, 운영 체계 수립',
+        '간담회, 교류 행사, 소모임, 학과 최초 학술제 개최',
       ],
     },
   ] satisfies ExperienceItem[],
   contact: {
     message:
-      'AI/Data 프로젝트, IT 서비스기획, 데이터 기반 문제 해결 역할에 관심이 있습니다.',
+      'AI/Data, DT/AX, 제조·반도체 데이터 활용, 공정/장비 데이터 분석 직무에 관심이 있습니다.',
     links: [
       { label: 'Email', href: 'mailto:gigukbyun@korea.ac.kr' },
       { label: 'Phone', href: 'tel:01056575945' },

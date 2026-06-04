@@ -6,9 +6,15 @@ type HeroProps = {
     title: string;
     headline: string;
     location: string;
+    education: string;
+    graduation: string;
+    minor: string;
+    gpa: string;
+    toeic: string;
     email: string;
     phone: string;
     github: string;
+    desiredRoles: string[];
   };
 };
 
@@ -42,6 +48,11 @@ export function Hero({ person }: HeroProps) {
           <p className="eyebrow">{person.title}</p>
           <h1>{person.name}</h1>
           <p className="heroLead">{person.headline}</p>
+          <div className="heroTagList" aria-label="희망 직무">
+            {person.desiredRoles.map((role) => (
+              <span key={role}>{role}</span>
+            ))}
+          </div>
           <div className="heroActions">
             <a className="primaryButton" href="#projects">
               프로젝트 보기
@@ -53,21 +64,24 @@ export function Hero({ person }: HeroProps) {
         </div>
         <aside className="heroPanel" aria-label="지원 방향 요약">
           <div>
-            <span className="panelLabel">Focus</span>
-            <strong>AI 행동분류 · 낙상 판단 보조</strong>
+            <span className="panelLabel">Education</span>
+            <strong>{person.education}</strong>
+            <strong className="panelSub">{person.graduation}</strong>
           </div>
           <div>
-            <span className="panelLabel">Role Fit</span>
-            <strong>AI/Data · IT 서비스기획</strong>
+            <span className="panelLabel">Convergence Major</span>
+            <strong>{person.minor}</strong>
           </div>
           <div>
-            <span className="panelLabel">Location</span>
-            <strong>{person.location}</strong>
+            <span className="panelLabel">Profile</span>
+            <strong>GPA {person.gpa}</strong>
+            <strong className="panelSub">{person.toeic}</strong>
           </div>
           <div>
             <span className="panelLabel">Contact</span>
             <strong>{person.email}</strong>
             <strong>{person.phone}</strong>
+            <strong className="panelSub">{person.location}</strong>
           </div>
         </aside>
       </section>
