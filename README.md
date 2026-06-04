@@ -18,6 +18,16 @@ npm run build
 npm run preview
 ```
 
+## 주요 라우트
+
+GitHub Pages 새로고침 안정성을 위해 포트폴리오 내부 화면은 hash route를 사용합니다.
+
+- `#/projects` — 서브페이지 목록
+- `#/projects/fallai` — FallAI Console 상세 및 iframe 데모
+- `#/demo/fallai-console` — FallAI 분석 시작 화면 단독 데모
+- `#/projects/stock-console` — Stock Console 서브 프로젝트
+- `#/projects/data-quality` — 데이터 품질 리포트 확장 슬롯
+
 ## GitHub Pages 배포
 
 이 저장소는 GitHub Actions 기반 Pages 배포 파일을 포함합니다.
@@ -46,9 +56,15 @@ src/
  │   ├─ ProjectDetail.tsx
  │   ├─ Skills.tsx
  │   ├─ Experience.tsx
+ │   ├─ FutureProjects.tsx
  │   └─ Contact.tsx
  ├─ pages/
- │   └─ Home.tsx
+ │   ├─ Home.tsx
+ │   ├─ Projects.tsx
+ │   ├─ ProjectPage.tsx
+ │   ├─ FallAIConsoleDemo.tsx
+ │   └─ NotFound.tsx
+ ├─ routes.ts
  └─ assets/
 ```
 

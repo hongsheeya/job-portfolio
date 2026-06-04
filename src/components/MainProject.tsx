@@ -26,12 +26,24 @@ export function MainProject({ project }: MainProjectProps) {
             ))}
           </div>
           <div className="projectLinks" aria-label="프로젝트 링크">
-            {project.links.map((link) => (
-              <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
-                <span>{link.label}</span>
-                <small>{link.description}</small>
-              </a>
-            ))}
+            {project.links.map((link) => {
+              const external =
+                link.href.startsWith('http') ||
+                link.href.startsWith('mailto:') ||
+                link.href.startsWith('tel:');
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noreferrer' : undefined}
+                >
+                  <span>{link.label}</span>
+                  <small>{link.description}</small>
+                </a>
+              );
+            })}
           </div>
         </div>
         <div className="projectVisual">

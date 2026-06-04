@@ -1,4 +1,5 @@
 import type { FutureProject } from '../data/portfolio';
+import { appHref } from '../routes';
 
 type FutureProjectsProps = {
   projects: FutureProject[];
@@ -16,9 +17,21 @@ export function FutureProjects({ projects }: FutureProjectsProps) {
       <div className="futureGrid">
         {projects.map((project) => (
           <article className="futureCard" key={project.title}>
-            <span>{project.status}</span>
+            <span>{project.category ? `${project.category} · ${project.status}` : project.status}</span>
             <h3>{project.title}</h3>
             <p>{project.description}</p>
+            {project.points ? (
+              <ul className="compact checkList">
+                {project.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            ) : null}
+            {project.route ? (
+              <a className="inlineLink" href={appHref(project.route)}>
+                서브페이지 보기
+              </a>
+            ) : null}
           </article>
         ))}
       </div>

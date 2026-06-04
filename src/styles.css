@@ -508,6 +508,421 @@ h3 {
   background: #ffffff;
 }
 
+.futureCard .inlineLink {
+  margin-top: 18px;
+}
+
+.inlineLink {
+  color: var(--navy);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.subPage {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.subNav {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.subHero {
+  padding-bottom: 44px;
+}
+
+.subHero h1 {
+  font-size: clamp(38px, 6vw, 58px);
+}
+
+.routeGridSection {
+  padding-top: 24px;
+}
+
+.routeGrid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.routeCard {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  padding: 24px;
+}
+
+.routeCard > span {
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 850;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.routeCard p {
+  color: #4b5565;
+  line-height: 1.75;
+}
+
+.routeCard .primaryButton {
+  margin-top: auto;
+  width: fit-content;
+}
+
+.consoleEmbed {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 50px rgba(24, 49, 79, 0.08);
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.consoleEmbed iframe {
+  aspect-ratio: 16 / 10;
+  border: 0;
+  display: block;
+  width: 100%;
+}
+
+.consoleActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.consoleDemo {
+  background: #f3f6f9;
+  color: #172033;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.consoleTopbar {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 16px;
+  max-width: 1160px;
+  padding: 14px 16px;
+}
+
+.consoleTopbar > div {
+  display: grid;
+  gap: 3px;
+}
+
+.consoleTopbar strong {
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.consoleMark {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.consoleTopbar button {
+  background: var(--navy);
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 850;
+  min-height: 42px;
+  padding: 0 16px;
+}
+
+.consoleLayout {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  margin: 0 auto;
+  max-width: 1160px;
+}
+
+.videoPane,
+.analysisPane,
+.timelinePanel,
+.logPanel {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.videoPane {
+  min-height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skeletonStage {
+  background:
+    linear-gradient(90deg, rgba(24, 49, 79, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(24, 49, 79, 0.08) 1px, transparent 1px),
+    #f8fafc;
+  background-size: 48px 48px;
+  height: 100%;
+  min-height: 420px;
+  position: relative;
+}
+
+.joint,
+.bone {
+  position: absolute;
+}
+
+.joint {
+  background: #10b981;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(17, 128, 106, 0.24);
+  height: 20px;
+  width: 20px;
+  z-index: 2;
+}
+
+.bone {
+  background: #24476b;
+  border-radius: 999px;
+  height: 8px;
+  transform-origin: left center;
+}
+
+.head {
+  left: 49%;
+  top: 18%;
+}
+
+.shoulderL {
+  left: 42%;
+  top: 32%;
+}
+
+.shoulderR {
+  left: 56%;
+  top: 31%;
+}
+
+.hip {
+  left: 53%;
+  top: 54%;
+}
+
+.kneeL {
+  left: 41%;
+  top: 72%;
+}
+
+.kneeR {
+  left: 64%;
+  top: 68%;
+}
+
+.torso {
+  left: 46%;
+  top: 43%;
+  transform: rotate(64deg);
+  width: 110px;
+}
+
+.armL {
+  left: 42%;
+  top: 34%;
+  transform: rotate(148deg);
+  width: 96px;
+}
+
+.armR {
+  left: 57%;
+  top: 33%;
+  transform: rotate(30deg);
+  width: 96px;
+}
+
+.legL {
+  left: 52%;
+  top: 57%;
+  transform: rotate(135deg);
+  width: 112px;
+}
+
+.legR {
+  left: 55%;
+  top: 57%;
+  transform: rotate(50deg);
+  width: 132px;
+}
+
+.videoStatus {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  bottom: 16px;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  left: 16px;
+  min-width: 220px;
+  padding: 12px 14px;
+  position: absolute;
+}
+
+.videoStatus span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.videoStatus strong {
+  color: var(--navy);
+}
+
+.analysisPane {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.statusCard {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.statusCard.danger {
+  background: #fff5f5;
+  border-color: #fecaca;
+}
+
+.statusCard span,
+.statusGrid span {
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 850;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.statusCard strong {
+  color: #be123c;
+  display: block;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.statusCard p {
+  color: #4b5565;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.statusGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.statusGrid div {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.statusGrid strong {
+  color: var(--navy);
+  font-size: 24px;
+}
+
+.timelinePanel,
+.logPanel {
+  margin: 16px auto 0;
+  max-width: 1160px;
+  padding: 16px;
+}
+
+.timelineTrack {
+  height: 104px;
+  position: relative;
+}
+
+.segment {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  font-size: 13px;
+  font-weight: 850;
+  height: 32px;
+  justify-content: center;
+  opacity: 0.32;
+  position: absolute;
+  transition: opacity 200ms ease;
+}
+
+.segment.visible {
+  opacity: 1;
+}
+
+.segment.safe {
+  background: #d9fbe9;
+  border: 1px solid #8be0b6;
+  color: #047857;
+  top: 8px;
+}
+
+.segment.danger {
+  background: #ffe4e6;
+  border: 1px solid #fda4af;
+  color: #be123c;
+  top: 42px;
+}
+
+.segment.watch {
+  background: #fff3c4;
+  border: 1px solid #facc15;
+  color: #92400e;
+  top: 76px;
+}
+
+.logPanel {
+  display: grid;
+  gap: 8px;
+}
+
+.logPanel p {
+  color: #334155;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 13px;
+  margin: 0;
+}
+
 .contactSection {
   border-top: 1px solid var(--line);
   text-align: center;
@@ -553,7 +968,9 @@ h3 {
   .metricGrid,
   .skillGrid,
   .futureGrid,
-  .detailGrid {
+  .detailGrid,
+  .routeGrid,
+  .consoleLayout {
     grid-template-columns: 1fr;
   }
 
@@ -572,6 +989,16 @@ h3 {
 
   .detailCard:nth-child(3) {
     grid-column: auto;
+  }
+
+  .subNav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .consoleEmbed iframe {
+    aspect-ratio: 4 / 5;
   }
 }
 
@@ -603,7 +1030,35 @@ h3 {
   .detailCard,
   .skillCard,
   .futureCard,
-  .timelineItem {
+  .timelineItem,
+  .routeCard {
     padding: 20px;
+  }
+
+  .consoleDemo {
+    padding: 10px;
+  }
+
+  .consoleTopbar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .videoPane,
+  .skeletonStage {
+    min-height: 340px;
+  }
+
+  .timelineTrack {
+    height: 124px;
+  }
+
+  .segment {
+    font-size: 12px;
+  }
+
+  .statusGrid {
+    grid-template-columns: 1fr;
   }
 }
