@@ -1,3 +1,5 @@
+import { appHref, routes } from '../routes';
+
 type HeroProps = {
   person: {
     name: string;
@@ -12,8 +14,8 @@ type HeroProps = {
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Project', href: '#project' },
-  { label: 'Detail', href: '#detail' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'FallAI', href: appHref(routes.fallAI) },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
@@ -23,8 +25,8 @@ export function Hero({ person }: HeroProps) {
   return (
     <header className="hero">
       <nav className="nav" aria-label="주요 섹션">
-        <a className="brand" href="#top" aria-label="포트폴리오 홈">
-          FallAI Portfolio
+        <a className="brand" href={appHref(routes.home)} aria-label="포트폴리오 홈">
+          변기국 Portfolio
         </a>
         <div className="navLinks">
           {navItems.map((item) => (
@@ -41,8 +43,8 @@ export function Hero({ person }: HeroProps) {
           <h1>{person.name}</h1>
           <p className="heroLead">{person.headline}</p>
           <div className="heroActions">
-            <a className="primaryButton" href="#project">
-              메인 프로젝트 보기
+            <a className="primaryButton" href="#projects">
+              프로젝트 보기
             </a>
             <a className="secondaryButton" href={`mailto:${person.email}`}>
               연락하기

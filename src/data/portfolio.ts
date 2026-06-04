@@ -30,6 +30,16 @@ export type ProjectLink = {
   description: string;
 };
 
+export type ProjectSummary = {
+  title: string;
+  route: string;
+  category: string;
+  summary: string;
+  role: string;
+  stack: string[];
+  points: string[];
+};
+
 export type SkillGroup = {
   title: string;
   items: string[];
@@ -54,13 +64,29 @@ export const portfolio = {
   },
   about: {
     intro:
-      'AI 기반 행동분류 프로젝트를 중심으로 데이터 구조, 모델 학습 흐름, 실시간 분석 화면, 사용자 판단 보조 UX를 함께 개선했습니다.',
+      '데이터와 모델을 서비스 화면으로 연결하는 과정에 관심이 있습니다. AI 행동분류 프로젝트에서는 문제 정의, 데이터 처리, 모델 검토, 사용자 판단 보조 화면까지 함께 다뤘습니다.',
     strengths: [
       '문제를 기능 단위가 아니라 데이터, 모델, 화면, 운영 흐름의 연결로 정의합니다.',
       '영상 데이터와 pose feature를 다루며 모델 입력 경로와 테스트 구조를 정리했습니다.',
       '서비스기획 관점에서 개인정보 보호, 판단 근거 표시, 사용자 검증 흐름을 함께 고려합니다.',
     ],
   },
+  featuredProjects: [
+    {
+      title: 'AI 기반 행동분류 및 낙상 판단 보조 시스템',
+      route: '/projects/fallai',
+      category: 'Main AI Project',
+      summary:
+        '실시간 자세와 움직임을 분석해 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 프로젝트입니다.',
+      role: 'AI/Data Pipeline · Frontend UX · System Improvement',
+      stack: ['MediaPipe', 'Pose Feature', 'XGBoost', 'RandomForest', 'React'],
+      points: [
+        '스켈레톤 중심 표시로 개인정보 노출 부담을 낮춤',
+        '하체 가림 상황을 고려한 synthetic occlusion 데이터 검토',
+        '중첩 분할 타임라인과 분석 로그로 판단 근거를 화면화',
+      ],
+    },
+  ] satisfies ProjectSummary[],
   mainProject: {
     title: 'AI 기반 행동분류 및 낙상 판단 보조 시스템',
     subtitle: '실시간 자세 분석과 행동 상태 분류를 통한 낙상 판단 보조 프로젝트',

@@ -1,45 +1,68 @@
 const actionBars = [
-  { label: '앉기', value: 49, color: 'cyan' },
-  { label: '뛰기', value: 22, color: 'cyan' },
-  { label: '눕기', value: 17, color: 'cyan' },
-  { label: '걷기', value: 9, color: 'cyan' },
-  { label: '서기', value: 4, color: 'cyan' },
+  { label: '눕기', value: 54, color: 'cyan' },
+  { label: '앉기', value: 26, color: 'cyan' },
+  { label: '서기', value: 12, color: 'cyan' },
+  { label: '걷기', value: 5, color: 'cyan' },
+  { label: '뛰기', value: 3, color: 'cyan' },
 ];
 
 const evidenceBars = [
-  { label: '중립', value: 49, color: 'slate' },
-  { label: 'distress', value: 26, color: 'slate' },
-  { label: '당황', value: 24, color: 'amber' },
-  { label: '모델신뢰', value: 62, color: 'cyan' },
-  { label: '고정보정', value: 36, color: 'rose' },
-  { label: '상태 품질', value: 70, color: 'cyan' },
-  { label: '실제얼굴', value: 100, color: 'cyan' },
+  { label: '전신검출', value: 100, color: 'cyan' },
+  { label: '자세품질', value: 91, color: 'cyan' },
+  { label: '중심변화', value: 74, color: 'amber' },
+  { label: '속도변화', value: 68, color: 'amber' },
+  { label: '모델신뢰', value: 79, color: 'cyan' },
+  { label: '보정필요', value: 18, color: 'rose' },
 ];
 
 const logs = [
   {
-    title: '비낙상·앉기 → 앉기',
-    time: '8~12초 · 0.7초',
-    score: '30%',
-    text: '자세 앉기 · 위험 30.0% · RF-Dual · LLM 캐시',
+    title: '낙상 의심 · 전신 검출',
+    time: '12~16초 · 0.9초',
+    score: '68%',
+    text: '몸 전체 검출 · 중심 급변 · RF-Dual 낙상 근거 유지',
   },
   {
-    title: '비낙상·눕기 → 앉기',
-    time: '6~10초 · 1.2초',
-    score: '30%',
-    text: '눕기 → 앉기 · 자세 감지 · 상태 자세 감지',
+    title: '앉기 → 눕기 전환',
+    time: '10~14초 · 1.1초',
+    score: '63%',
+    text: '상체 기울기 증가 · hip/knee 고도 하락 · 중첩 구간 확인',
   },
   {
-    title: '비낙상·눕기 → 눕기',
-    time: '2~6초 · 1.0초',
-    score: '39%',
-    text: '앉기 → 눕기 · 자세 감지 · XG-Posture 보조',
+    title: '전환 경계 재검토',
+    time: '8~12초 · 0.8초',
+    score: '57%',
+    text: '4초 창 · 2초 stride · 이전 구간 근거와 연결',
   },
   {
-    title: '비낙상·앉기 → 앉기',
-    time: '0~4초 · 1.1초',
-    score: '43%',
-    text: '현재 앉기 · ΔY 1.13px · 자세 104%',
+    title: '서기 → 앉기 변화',
+    time: '6~10초 · 1.0초',
+    score: '42%',
+    text: '관절 속도 증가 · 무릎 각도 변화 · 주의 구간',
+  },
+  {
+    title: '균형 저하 신호',
+    time: '4~8초 · 0.8초',
+    score: '35%',
+    text: '어깨-골반 축 기울기 증가 · XG-Posture 보조 판정',
+  },
+  {
+    title: '정상 보행 구간',
+    time: '2~6초 · 0.7초',
+    score: '18%',
+    text: '전신 검출 안정 · 중심 이동 완만 · 위험 낮음',
+  },
+  {
+    title: '초기 자세 확인',
+    time: '0~4초 · 0.8초',
+    score: '12%',
+    text: '서기 상태 · 프레임 품질 94% · 기준 자세 저장',
+  },
+  {
+    title: '업로드 분석 준비',
+    time: '0초 · 0.3초',
+    score: '0%',
+    text: '영상 로드 · 사람 영역 확인 · 스켈레톤 전용 표시',
   },
 ];
 
@@ -80,10 +103,10 @@ export function FallAIScreenPreview() {
           <section className="runtimeStage" aria-label="스켈레톤 분석 화면">
             <aside className="decisionOverlay">
               <div className="scoreRow">
-                <strong>31%</strong>
-                <span>비낙상·앉기</span>
+                <strong>68%</strong>
+                <span>낙상 의심 · 눕기</span>
               </div>
-              <p>행동: 앉기</p>
+              <p>판단: 낙상 보조 근거 확인</p>
               <div className="meterGroup">
                 {actionBars.map((bar) => (
                   <Meter key={bar.label} {...bar} />
@@ -91,43 +114,52 @@ export function FallAIScreenPreview() {
               </div>
               <div className="evidenceBox">
                 <div className="evidenceTitle">
-                  <strong>표정: 약한 불편 신호</strong>
-                  <span>49%</span>
+                  <strong>전신 자세 근거</strong>
+                  <span>91%</span>
                 </div>
                 {evidenceBars.map((bar) => (
                   <Meter key={bar.label} {...bar} />
                 ))}
-                <small>감정 top 중립 0.49, 수심/불안 차이 0.23, 프레임일치 0.50</small>
+                <small>어깨-골반 축 37도 · 중심 하락 0.42 · 관절 추적 17/17</small>
               </div>
               <div className="stateLine">
-                <b>앉기 75%</b>
-                <span>눕기 25%</span>
+                <b>눕기 54%</b>
+                <span>앉기 26%</span>
               </div>
-              <small>비낙상 · ΔY 2.1px · 자세 100% · 7F 검출</small>
+              <small>낙상 의심 · 전신 검출 100% · 중첩 구간 12~16초</small>
             </aside>
 
             <div className="skeletonCanvas" aria-hidden="true">
-              <span className="posePoint face face1" />
-              <span className="posePoint face face2" />
-              <span className="posePoint face face3" />
-              <span className="posePoint face face4" />
-              <span className="posePoint face face5" />
-              <span className="posePoint face face6" />
-              <span className="poseBone faceBone brow" />
-              <span className="poseBone faceBone jaw" />
+              <svg className="fallPoseSvg" viewBox="0 0 760 520" role="img" aria-label="전신 스켈레톤 낙상 의심 자세">
+                <rect className="poseGuide" x="132" y="58" width="472" height="344" rx="18" />
+                <line className="floorGuide" x1="92" y1="408" x2="666" y2="408" />
+                <text className="poseLabel" x="136" y="52">전신 검출 100%</text>
+                <text className="poseLabel risk" x="476" y="52">낙상 의심 68%</text>
 
-              <span className="posePoint body shoulder" />
-              <span className="posePoint body hipLeft" />
-              <span className="posePoint body hipRight" />
-              <span className="posePoint body kneeLeft" />
-              <span className="posePoint body kneeRight" />
-              <span className="posePoint body footLeft" />
-              <span className="posePoint body footRight" />
-              <span className="poseBone bodyBone back" />
-              <span className="poseBone bodyBone seat" />
-              <span className="poseBone bodyBone legLeft" />
-              <span className="poseBone bodyBone legRight" />
-              <span className="poseBone bodyBone floor" />
+                <line className="poseLink spine" x1="370" y1="150" x2="448" y2="262" />
+                <line className="poseLink" x1="332" y1="174" x2="370" y2="150" />
+                <line className="poseLink" x1="448" y1="262" x2="410" y2="338" />
+                <line className="poseLink" x1="448" y1="262" x2="520" y2="348" />
+                <line className="poseLink" x1="410" y1="338" x2="332" y2="398" />
+                <line className="poseLink" x1="520" y1="348" x2="594" y2="404" />
+                <line className="poseLink arm" x1="370" y1="150" x2="292" y2="236" />
+                <line className="poseLink arm" x1="292" y1="236" x2="230" y2="310" />
+                <line className="poseLink arm" x1="370" y1="150" x2="492" y2="190" />
+                <line className="poseLink arm" x1="492" y1="190" x2="578" y2="232" />
+
+                <circle className="poseHead" cx="322" cy="112" r="34" />
+                <circle className="poseJoint" cx="370" cy="150" r="8" />
+                <circle className="poseJoint" cx="332" cy="174" r="7" />
+                <circle className="poseJoint" cx="448" cy="262" r="8" />
+                <circle className="poseJoint" cx="410" cy="338" r="7" />
+                <circle className="poseJoint" cx="520" cy="348" r="7" />
+                <circle className="poseJoint" cx="332" cy="398" r="7" />
+                <circle className="poseJoint" cx="594" cy="404" r="7" />
+                <circle className="poseJoint arm" cx="292" cy="236" r="7" />
+                <circle className="poseJoint arm" cx="230" cy="310" r="7" />
+                <circle className="poseJoint arm" cx="492" cy="190" r="7" />
+                <circle className="poseJoint arm" cx="578" cy="232" r="7" />
+              </svg>
             </div>
 
             <span className="skeletonPill">스켈레톤 전용</span>
@@ -143,7 +175,7 @@ export function FallAIScreenPreview() {
           <aside className="runtimeLogRail" aria-label="분석 로그">
             <div className="logHeader">
               <strong>분석 로그</strong>
-              <span>4건</span>
+              <span>{logs.length}건</span>
             </div>
             <div className="logList">
               {logs.map((log) => (
