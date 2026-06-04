@@ -15,8 +15,6 @@ export type MainProject = {
   summary: string;
   visual: string;
   route: string;
-  consoleDemoRoute: string;
-  localConsoleUrl: string;
   links: ProjectLink[];
   screenshots: ProjectScreenshot[];
   stack: string[];
@@ -104,18 +102,11 @@ export const portfolio = {
       '실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 개인정보 보호를 위해 원본 화면 대신 스켈레톤 중심 표시 구조를 적용하고, 하체가 가려지는 상황을 보완하기 위해 synthetic occlusion 데이터를 생성했습니다. 또한 MediaPipe 입력 경로를 개선하고, 행동분류 모델 학습 및 테스트 구조를 정리했습니다.',
     visual: pipelineVisual,
     route: '/projects/fallai',
-    consoleDemoRoute: '/demo/fallai-console',
-    localConsoleUrl: 'http://localhost:3000/dashboard',
     links: [
       {
         label: 'FallAI 상세 페이지',
         href: '#/projects/fallai',
-        description: '작동 데모, 실제 콘솔 iframe, 파이프라인 근거를 확인하는 서브페이지',
-      },
-      {
-        label: 'FallAI Console 데모',
-        href: '#/demo/fallai-console',
-        description: '포트폴리오 안에서 분석 시작 흐름을 바로 확인하는 iframe용 데모',
+        description: '실제 콘솔 구동 화면 구성, 분석 로그, 파이프라인 근거를 확인하는 서브페이지',
       },
       {
         label: '포트폴리오 저장소',
@@ -237,11 +228,11 @@ export const portfolio = {
   futureProjects: [
     {
       title: 'FallAI Console 상세',
-      description: '분석 시작 화면, 중첩 타임라인, 모델 근거, 로컬 콘솔 연결을 확인하는 메인 프로젝트 상세 페이지',
+      description: '스켈레톤 구동 화면, 판단 결과, 분석 로그, 모델 근거를 확인하는 메인 프로젝트 상세 페이지',
       status: '운영 중',
       route: '/projects/fallai',
       category: 'Main',
-      points: ['iframe 기반 작동 데모', '로컬 콘솔 연결', '분석 파이프라인 요약'],
+      points: ['실제 콘솔형 구동 화면', '좌측 판단 결과 패널', '우측 분석 로그와 모델 근거'],
     },
     {
       title: 'Stock Console',
@@ -272,20 +263,15 @@ export const portfolio = {
       role: 'AI/Data Pipeline · Dashboard UX',
       stack: ['Python', 'MediaPipe', 'YOLO', 'XGBoost', 'RandomForest', 'TypeScript'],
       points: [
-        '분석 시작 후 구간별 결과가 갱신되는 콘솔 데모 제공',
+        '분석 시작 후 좌측 판단 결과와 우측 로그가 갱신되는 실제 콘솔 화면 구성',
         '4초 window, 2초 stride 기반 중첩 타임라인을 화면에서 확인',
-        '실제 로컬 FallAI 서버가 실행 중이면 별도 링크로 직접 접근 가능',
+        '공개 포트폴리오에서는 localhost 링크를 제거해 다른 로컬 앱으로 이동하는 문제 방지',
       ],
       links: [
         {
-          label: '작동 데모 열기',
-          href: '#/demo/fallai-console',
-          description: '분석 시작 상태와 로그가 진행되는 iframe용 데모',
-        },
-        {
-          label: '로컬 FallAI Dashboard',
-          href: 'http://localhost:3000/dashboard',
-          description: 'Codex 서버/로컬 환경에서 FallAI가 실행 중일 때 접근',
+          label: '프로젝트 구조 보기',
+          href: '#project',
+          description: '홈 화면의 메인 프로젝트 요약으로 이동',
         },
       ],
     },

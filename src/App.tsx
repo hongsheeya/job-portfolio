@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { portfolio } from './data/portfolio';
-import { FallAIConsoleDemo } from './pages/FallAIConsoleDemo';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { ProjectPage } from './pages/ProjectPage';
@@ -33,10 +32,6 @@ export default function App() {
 
   if (route === routes.projects) {
     return <Projects />;
-  }
-
-  if (route === routes.fallaiDemo) {
-    return <FallAIConsoleDemo />;
   }
 
   if (subProject) {

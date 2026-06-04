@@ -4,7 +4,6 @@ export const routes = {
   fallai: '/projects/fallai',
   stockConsole: '/projects/stock-console',
   dataQuality: '/projects/data-quality',
-  fallaiDemo: '/demo/fallai-console',
 };
 
 export function normalizeRoute(path: string) {

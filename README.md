@@ -23,8 +23,7 @@ npm run preview
 GitHub Pages 새로고침 안정성을 위해 포트폴리오 내부 화면은 hash route를 사용합니다.
 
 - `#/projects` — 서브페이지 목록
-- `#/projects/fallai` — FallAI Console 상세 및 iframe 데모
-- `#/demo/fallai-console` — FallAI 분석 시작 화면 단독 데모
+- `#/projects/fallai` — FallAI Console 상세 및 구동 화면
 - `#/projects/stock-console` — Stock Console 서브 프로젝트
 - `#/projects/data-quality` — 데이터 품질 리포트 확장 슬롯
 
@@ -62,7 +61,6 @@ src/
  │   ├─ Home.tsx
  │   ├─ Projects.tsx
  │   ├─ ProjectPage.tsx
- │   ├─ FallAIConsoleDemo.tsx
  │   └─ NotFound.tsx
  ├─ routes.ts
  └─ assets/
