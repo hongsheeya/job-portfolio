@@ -8,8 +8,9 @@ export function FutureProjects({ projects }: FutureProjectsProps) {
   return (
     <section id="future" className="section">
       <div className="sectionHeader">
-        <p className="sectionKicker">Future Projects</p>
-        <h2>추가 프로젝트 확장을 고려한 데이터 기반 영역</h2>
+        <p className="sectionKicker">Sub Projects</p>
+        <h2>다른 프로젝트를 쉽게 추가할 수 있는 확장 영역</h2>
+        <p>새 프로젝트가 생기면 데이터 파일에 항목만 추가해 같은 형식으로 정리할 수 있습니다.</p>
       </div>
 
       <div className="futureGrid">

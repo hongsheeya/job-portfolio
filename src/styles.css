@@ -318,11 +318,74 @@ h3 {
   margin-top: 24px;
 }
 
+.projectLinks {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.projectLinks a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--navy);
+  display: grid;
+  gap: 5px;
+  padding: 14px 16px;
+}
+
+.projectLinks span {
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.projectLinks small {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .projectVisual {
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px;
+}
+
+.screenGrid {
+  display: grid;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.screenCard {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.screenCard img {
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  object-fit: cover;
+  width: 100%;
+}
+
+.screenCard figcaption {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px 20px;
+}
+
+.screenCard strong {
+  color: var(--navy);
+  font-size: 18px;
+}
+
+.screenCard span {
+  color: #4b5565;
+  line-height: 1.7;
 }
 
 .metricGrid,

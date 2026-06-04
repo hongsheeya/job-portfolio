@@ -25,10 +25,30 @@ export function MainProject({ project }: MainProjectProps) {
               <span key={item}>{item}</span>
             ))}
           </div>
+          <div className="projectLinks" aria-label="프로젝트 링크">
+            {project.links.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                <span>{link.label}</span>
+                <small>{link.description}</small>
+              </a>
+            ))}
+          </div>
         </div>
         <div className="projectVisual">
           <img src={project.visual} alt="AI 행동분류 및 낙상 판단 보조 시스템 파이프라인" />
         </div>
+      </div>
+
+      <div className="screenGrid">
+        {project.screenshots.map((screen) => (
+          <figure className="screenCard" key={screen.title}>
+            <img src={screen.image} alt={screen.alt} />
+            <figcaption>
+              <strong>{screen.title}</strong>
+              <span>{screen.caption}</span>
+            </figcaption>
+          </figure>
+        ))}
       </div>
 
       <div className="metricGrid">

@@ -5,6 +5,7 @@ type HeroProps = {
     headline: string;
     location: string;
     email: string;
+    phone: string;
     github: string;
   };
 };
@@ -53,6 +54,11 @@ export function Hero({ person }: HeroProps) {
           <div>
             <span className="panelLabel">Location</span>
             <strong>{person.location}</strong>
+          </div>
+          <div>
+            <span className="panelLabel">Contact</span>
+            <strong>{person.email}</strong>
+            <strong>{person.phone}</strong>
           </div>
         </aside>
       </section>

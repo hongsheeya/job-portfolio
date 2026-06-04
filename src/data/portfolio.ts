@@ -1,4 +1,5 @@
 import pipelineVisual from '../assets/fallai-pipeline.svg';
+import runtimeScreen from '../assets/fallai-runtime-screen.png';
 
 export type Metric = {
   label: string;
@@ -13,6 +14,8 @@ export type MainProject = {
   role: string;
   summary: string;
   visual: string;
+  links: ProjectLink[];
+  screenshots: ProjectScreenshot[];
   stack: string[];
   highlights: string[];
   metrics: Metric[];
@@ -21,6 +24,19 @@ export type MainProject = {
   pipeline: string[];
   improvements: string[];
   evidence: string[];
+};
+
+export type ProjectLink = {
+  label: string;
+  href: string;
+  description: string;
+};
+
+export type ProjectScreenshot = {
+  title: string;
+  image: string;
+  alt: string;
+  caption: string;
 };
 
 export type SkillGroup = {
@@ -43,12 +59,13 @@ export type FutureProject = {
 
 export const portfolio = {
   person: {
-    name: '이름을 입력하세요',
+    name: '변기국',
     title: 'AI/Data · IT 서비스기획 지원자',
     headline: '문제 정의부터 데이터 처리, 모델 검토, 서비스 화면 개선까지 연결하는 지원자입니다.',
     location: 'South Korea',
-    email: 'your.email@example.com',
-    github: 'https://github.com/your-github-id',
+    email: 'gigukbyun@korea.ac.kr',
+    phone: '010-5657-5945',
+    github: 'https://github.com/hongsheeya',
   },
   about: {
     intro:
@@ -67,6 +84,27 @@ export const portfolio = {
     summary:
       '실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 개인정보 보호를 위해 원본 화면 대신 스켈레톤 중심 표시 구조를 적용하고, 하체가 가려지는 상황을 보완하기 위해 synthetic occlusion 데이터를 생성했습니다. 또한 MediaPipe 입력 경로를 개선하고, 행동분류 모델 학습 및 테스트 구조를 정리했습니다.',
     visual: pipelineVisual,
+    links: [
+      {
+        label: 'FallAI Console 실행 화면',
+        href: 'http://localhost:3000/',
+        description: 'Codex 서버에서 확인한 실제 프로젝트 로컬 구동 링크',
+      },
+      {
+        label: '포트폴리오 저장소',
+        href: 'https://github.com/hongsheeya/job-portfolio',
+        description: 'React/Vite 기반 GitHub Pages 포트폴리오 코드',
+      },
+    ],
+    screenshots: [
+      {
+        title: 'FallAI Console 구동 화면',
+        image: runtimeScreen,
+        alt: 'FallAI Console의 실시간 분석 화면과 분석 로그 패널',
+        caption:
+          'RF-Dual · XG-Posture 모델을 사용하는 실제 로컬 실행 화면입니다. 스켈레톤 전용 표시와 학습 모드 진입 흐름을 확인할 수 있습니다.',
+      },
+    ],
     stack: [
       'Python',
       'MediaPipe',
@@ -171,27 +209,29 @@ export const portfolio = {
   ] satisfies ExperienceItem[],
   futureProjects: [
     {
-      title: '멀티모달 이상행동 분석',
-      description: '영상, pose feature, 이벤트 로그를 결합해 이상행동 판단 근거를 확장하는 프로젝트',
-      status: 'Planning',
+      title: '서브 프로젝트 슬롯 1',
+      description: '멀티모달 이상행동 분석, 행동 데이터셋 제작 매뉴얼 등 다음 프로젝트를 추가할 수 있는 영역',
+      status: '추가 예정',
     },
     {
-      title: 'AI 서비스 운영 대시보드',
-      description: '모델 성능, 데이터 품질, 사용자 피드백을 한 화면에서 관리하는 운영형 대시보드',
-      status: 'Next',
+      title: '서브 프로젝트 슬롯 2',
+      description: '모델 성능, 데이터 품질, 사용자 피드백을 관리하는 운영형 대시보드 프로젝트 영역',
+      status: '추가 예정',
     },
     {
-      title: '데이터 품질 리포트 자동화',
-      description: '학습 데이터 분포, 누락, 라벨 품질을 자동 점검하는 리포트 생성 도구',
-      status: 'Idea',
+      title: '서브 프로젝트 슬롯 3',
+      description: '학습 데이터 분포, 누락, 라벨 품질을 자동 점검하는 리포트 자동화 프로젝트 영역',
+      status: '추가 예정',
     },
   ] satisfies FutureProject[],
   contact: {
     message:
       'AI/Data 프로젝트, IT 서비스기획, 데이터 기반 문제 해결 역할에 관심이 있습니다.',
     links: [
-      { label: 'Email', href: 'mailto:your.email@example.com' },
-      { label: 'GitHub', href: 'https://github.com/your-github-id' },
+      { label: 'Email', href: 'mailto:gigukbyun@korea.ac.kr' },
+      { label: 'Phone', href: 'tel:01056575945' },
+      { label: 'GitHub', href: 'https://github.com/hongsheeya' },
+      { label: 'Portfolio Repo', href: 'https://github.com/hongsheeya/job-portfolio' },
     ],
   },
 };
