@@ -1,3 +1,4 @@
+import { FallAIScreenPreview } from './FallAIScreenPreview';
 import type { MainProject as MainProjectType } from '../data/portfolio';
 
 type MainProjectProps = {
@@ -51,17 +52,7 @@ export function MainProject({ project }: MainProjectProps) {
         </div>
       </div>
 
-      <div className="screenGrid">
-        {project.screenshots.map((screen) => (
-          <figure className="screenCard" key={screen.title}>
-            <img src={screen.image} alt={screen.alt} />
-            <figcaption>
-              <strong>{screen.title}</strong>
-              <span>{screen.caption}</span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <FallAIScreenPreview />
 
       <div className="metricGrid">
         {project.metrics.map((metric) => (

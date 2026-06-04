@@ -1,6 +1,6 @@
-# AI/Data Job Portfolio
+# FallAI Job Portfolio
 
-AI/Data/IT 서비스기획 직무 지원용 GitHub Pages 포트폴리오입니다. 현재는 메인 프로젝트인 **AI 기반 행동분류 및 낙상 판단 보조 시스템**을 깊게 보여주고, 이후 프로젝트는 데이터 파일만 수정해 확장할 수 있도록 구성했습니다.
+AI/Data/IT 서비스기획 직무 지원용 GitHub Pages 포트폴리오입니다. 현재는 **AI 기반 행동분류 및 낙상 판단 보조 시스템** 한 프로젝트만 메인 페이지에서 깊게 보여주는 단일 페이지 구조입니다.
 
 ## 실행 방법
 
@@ -17,15 +17,6 @@ npm run dev
 npm run build
 npm run preview
 ```
-
-## 주요 라우트
-
-GitHub Pages 새로고침 안정성을 위해 포트폴리오 내부 화면은 hash route를 사용합니다.
-
-- `#/projects` — 서브페이지 목록
-- `#/projects/fallai` — FallAI Console 상세 및 구동 화면
-- `#/projects/stock-console` — Stock Console 서브 프로젝트
-- `#/projects/data-quality` — 데이터 품질 리포트 확장 슬롯
 
 ## GitHub Pages 배포
 
@@ -52,23 +43,19 @@ src/
  ├─ components/
  │   ├─ Hero.tsx
  │   ├─ MainProject.tsx
+ │   ├─ FallAIScreenPreview.tsx
  │   ├─ ProjectDetail.tsx
  │   ├─ Skills.tsx
  │   ├─ Experience.tsx
- │   ├─ FutureProjects.tsx
  │   └─ Contact.tsx
  ├─ pages/
- │   ├─ Home.tsx
- │   ├─ Projects.tsx
- │   ├─ ProjectPage.tsx
- │   └─ NotFound.tsx
- ├─ routes.ts
+ │   └─ Home.tsx
  └─ assets/
 ```
 
 ## 콘텐츠 수정
 
-포트폴리오의 이름, 연락처, 프로젝트, 기술 스택, 경험, 향후 프로젝트는 `src/data/portfolio.ts`에서 관리합니다. 새 프로젝트를 추가할 때도 데이터 구조에 맞춰 항목을 추가하면 화면 컴포넌트가 자동으로 반영합니다.
+포트폴리오의 이름, 연락처, 프로젝트, 기술 스택, 경험은 `src/data/portfolio.ts`에서 관리합니다. 실제 FallAI 구동 화면형 UI는 `src/components/FallAIScreenPreview.tsx`에 별도 컴포넌트로 분리되어 있고, 메인 페이지의 프로젝트 섹션에서 바로 표시됩니다.
 
 ## 현재 메인 프로젝트
 

@@ -351,46 +351,8 @@ h3 {
   padding: 14px;
 }
 
-.screenGrid {
-  display: grid;
-  gap: 18px;
-  margin-top: 26px;
-}
-
-.screenCard {
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  margin: 0;
-  overflow: hidden;
-}
-
-.screenCard img {
-  aspect-ratio: 16 / 9;
-  background: #0f172a;
-  object-fit: cover;
-  width: 100%;
-}
-
-.screenCard figcaption {
-  display: grid;
-  gap: 8px;
-  padding: 18px 20px 20px;
-}
-
-.screenCard strong {
-  color: var(--navy);
-  font-size: 18px;
-}
-
-.screenCard span {
-  color: #4b5565;
-  line-height: 1.7;
-}
-
 .metricGrid,
-.skillGrid,
-.futureGrid {
+.skillGrid {
   display: grid;
   gap: 18px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -400,16 +362,14 @@ h3 {
 .metricCard,
 .reportCard,
 .detailCard,
-.skillCard,
-.futureCard {
+.skillCard {
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 24px;
 }
 
-.metricCard span,
-.futureCard span {
+.metricCard span {
   color: var(--gold);
   display: block;
   font-size: 13px;
@@ -428,7 +388,6 @@ h3 {
 .metricCard p,
 .detailCard li,
 .skillCard p,
-.futureCard p,
 .timelineItem p {
   color: #4b5565;
   line-height: 1.75;
@@ -502,86 +461,6 @@ h3 {
   color: var(--muted);
   font-size: 14px;
   font-weight: 800;
-}
-
-.futureCard {
-  background: #ffffff;
-}
-
-.futureCard .inlineLink {
-  margin-top: 18px;
-}
-
-.inlineLink {
-  color: var(--navy);
-  display: inline-flex;
-  font-size: 14px;
-  font-weight: 850;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.subPage {
-  background: #ffffff;
-  min-height: 100vh;
-}
-
-.subNav {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 24px;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
-
-.subHero {
-  padding-bottom: 44px;
-}
-
-.subHero h1 {
-  font-size: clamp(38px, 6vw, 58px);
-}
-
-.routeGridSection {
-  padding-top: 24px;
-}
-
-.routeGrid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.routeCard {
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  min-height: 360px;
-  padding: 24px;
-}
-
-.routeCard > span {
-  color: var(--teal);
-  font-size: 13px;
-  font-weight: 850;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.routeCard p {
-  color: #4b5565;
-  line-height: 1.75;
-}
-
-.routeCard .primaryButton {
-  margin-top: auto;
-  width: fit-content;
 }
 
 .runtimeFigure {
@@ -1154,9 +1033,7 @@ h3 {
   .projectFeature,
   .metricGrid,
   .skillGrid,
-  .futureGrid,
-  .detailGrid,
-  .routeGrid {
+  .detailGrid {
     grid-template-columns: 1fr;
   }
 
@@ -1175,12 +1052,6 @@ h3 {
 
   .detailCard:nth-child(3) {
     grid-column: auto;
-  }
-
-  .subNav {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 14px;
   }
 
   .runtimeTopbar {
@@ -1233,9 +1104,7 @@ h3 {
   .reportCard,
   .detailCard,
   .skillCard,
-  .futureCard,
-  .timelineItem,
-  .routeCard {
+  .timelineItem {
     padding: 20px;
   }
 

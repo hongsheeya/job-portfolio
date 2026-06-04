@@ -1,5 +1,3 @@
-import { appHref } from '../routes';
-
 type HeroProps = {
   person: {
     name: string;
@@ -15,7 +13,7 @@ type HeroProps = {
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Project', href: '#project' },
-  { label: 'Subpages', href: appHref('/projects') },
+  { label: 'Detail', href: '#detail' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
@@ -25,8 +23,8 @@ export function Hero({ person }: HeroProps) {
   return (
     <header className="hero">
       <nav className="nav" aria-label="주요 섹션">
-        <a className="brand" href={appHref('/')} aria-label="포트폴리오 홈">
-          AI/Data Portfolio
+        <a className="brand" href="#top" aria-label="포트폴리오 홈">
+          FallAI Portfolio
         </a>
         <div className="navLinks">
           {navItems.map((item) => (

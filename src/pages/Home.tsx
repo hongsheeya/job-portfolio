@@ -1,7 +1,6 @@
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
 import { Experience } from '../components/Experience';
-import { FutureProjects } from '../components/FutureProjects';
 import { Hero } from '../components/Hero';
 import { MainProject } from '../components/MainProject';
 import { ProjectDetail } from '../components/ProjectDetail';
@@ -18,7 +17,6 @@ export function Home() {
         <ProjectDetail project={portfolio.mainProject} />
         <Skills groups={portfolio.skills} />
         <Experience items={portfolio.experience} />
-        <FutureProjects projects={portfolio.futureProjects} />
         <Contact contact={portfolio.contact} />
       </main>
     </>

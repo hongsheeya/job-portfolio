@@ -1,5 +1,4 @@
 import pipelineVisual from '../assets/fallai-pipeline.svg';
-import runtimeScreen from '../assets/fallai-runtime-screen.svg';
 
 export type Metric = {
   label: string;
@@ -14,9 +13,7 @@ export type MainProject = {
   role: string;
   summary: string;
   visual: string;
-  route: string;
   links: ProjectLink[];
-  screenshots: ProjectScreenshot[];
   stack: string[];
   highlights: string[];
   metrics: Metric[];
@@ -33,13 +30,6 @@ export type ProjectLink = {
   description: string;
 };
 
-export type ProjectScreenshot = {
-  title: string;
-  image: string;
-  alt: string;
-  caption: string;
-};
-
 export type SkillGroup = {
   title: string;
   items: string[];
@@ -50,28 +40,6 @@ export type ExperienceItem = {
   period: string;
   description: string;
   points: string[];
-};
-
-export type FutureProject = {
-  title: string;
-  description: string;
-  status: string;
-  route?: string;
-  category?: string;
-  points?: string[];
-};
-
-export type SubProject = {
-  slug: string;
-  title: string;
-  eyebrow: string;
-  summary: string;
-  status: string;
-  route: string;
-  role: string;
-  stack: string[];
-  points: string[];
-  links: ProjectLink[];
 };
 
 export const portfolio = {
@@ -101,26 +69,11 @@ export const portfolio = {
     summary:
       '실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 개인정보 보호를 위해 원본 화면 대신 스켈레톤 중심 표시 구조를 적용하고, 하체가 가려지는 상황을 보완하기 위해 synthetic occlusion 데이터를 생성했습니다. 또한 MediaPipe 입력 경로를 개선하고, 행동분류 모델 학습 및 테스트 구조를 정리했습니다.',
     visual: pipelineVisual,
-    route: '/projects/fallai',
     links: [
-      {
-        label: 'FallAI 상세 페이지',
-        href: '#/projects/fallai',
-        description: '실제 콘솔 구동 화면 구성, 분석 로그, 파이프라인 근거를 확인하는 서브페이지',
-      },
       {
         label: '포트폴리오 저장소',
         href: 'https://github.com/hongsheeya/job-portfolio',
         description: 'React/Vite 기반 GitHub Pages 포트폴리오 코드',
-      },
-    ],
-    screenshots: [
-      {
-        title: 'FallAI Console 구동 화면',
-        image: runtimeScreen,
-        alt: 'FallAI Console의 실시간 분석 화면과 분석 로그 패널',
-        caption:
-          'RF-Dual · XG-Posture 모델을 사용하는 실제 로컬 실행 화면입니다. 스켈레톤 전용 표시와 학습 모드 진입 흐름을 확인할 수 있습니다.',
       },
     ],
     stack: [
@@ -215,113 +168,16 @@ export const portfolio = {
       ],
     },
     {
-      title: '취업 포트폴리오 정리',
+      title: 'FallAI 프로젝트 문서화와 검증 흐름 정리',
       period: '현재',
       description:
-        '단일 핵심 프로젝트를 깊게 보여주고 이후 프로젝트를 데이터 기반으로 확장할 수 있는 구조를 설계했습니다.',
+        'AI 행동분류 및 낙상 판단 보조 시스템의 구현 화면, 파이프라인, 개선 근거를 한 페이지에서 검토할 수 있도록 정리했습니다.',
       points: [
-        '프로젝트 배경, 문제, 접근, 개선, 확장 가능성을 보고서형 화면으로 구성',
-        'AI/Data/IT/서비스기획 직무에 맞춰 기술과 기획 역량을 함께 표현',
+        'FallAI 콘솔 구동 화면을 메인 프로젝트 섹션에서 바로 확인 가능하도록 구성',
+        '문제 정의, 데이터 처리, 모델 검토, 시스템 개선 경험을 보고서형 흐름으로 정리',
       ],
     },
   ] satisfies ExperienceItem[],
-  futureProjects: [
-    {
-      title: 'FallAI Console 상세',
-      description: '스켈레톤 구동 화면, 판단 결과, 분석 로그, 모델 근거를 확인하는 메인 프로젝트 상세 페이지',
-      status: '운영 중',
-      route: '/projects/fallai',
-      category: 'Main',
-      points: ['실제 콘솔형 구동 화면', '좌측 판단 결과 패널', '우측 분석 로그와 모델 근거'],
-    },
-    {
-      title: 'Stock Console',
-      description: '기존 FallAI 실행 화면 링크로 잘못 이어지던 주식 관련 화면을 별도 서브페이지로 분리한 영역',
-      status: '서브페이지',
-      route: '/projects/stock-console',
-      category: 'Sub',
-      points: ['FallAI 라우트와 분리', '추후 주식 데이터/차트/리포트 추가 가능', '프로젝트 목록에서 독립 확인'],
-    },
-    {
-      title: '서브 프로젝트 슬롯 3',
-      description: '학습 데이터 분포, 누락, 라벨 품질을 자동 점검하는 리포트 자동화 프로젝트 영역',
-      status: '추가 예정',
-      route: '/projects/data-quality',
-      category: 'Future',
-      points: ['데이터 품질 점검', '라벨 분포 리포트', '모델 개선 로그 연결'],
-    },
-  ] satisfies FutureProject[],
-  subProjects: [
-    {
-      slug: 'fallai',
-      title: 'FallAI Console 상세',
-      eyebrow: 'Main Project',
-      summary:
-        'AI 기반 행동분류 및 낙상 판단 보조 시스템의 실제 구동 흐름을 확인하는 상세 페이지입니다. 분석 시작, 중첩 타임라인, 모델 근거, 학습 상태 표시를 포트폴리오 안에서 재현합니다.',
-      status: '운영 중',
-      route: '/projects/fallai',
-      role: 'AI/Data Pipeline · Dashboard UX',
-      stack: ['Python', 'MediaPipe', 'YOLO', 'XGBoost', 'RandomForest', 'TypeScript'],
-      points: [
-        '분석 시작 후 좌측 판단 결과와 우측 로그가 갱신되는 실제 콘솔 화면 구성',
-        '4초 window, 2초 stride 기반 중첩 타임라인을 화면에서 확인',
-        '공개 포트폴리오에서는 localhost 링크를 제거해 다른 로컬 앱으로 이동하는 문제 방지',
-      ],
-      links: [
-        {
-          label: '프로젝트 구조 보기',
-          href: '#project',
-          description: '홈 화면의 메인 프로젝트 요약으로 이동',
-        },
-      ],
-    },
-    {
-      slug: 'stock-console',
-      title: 'Stock Console',
-      eyebrow: 'Sub Project',
-      summary:
-        'FallAI Console 실행 화면과 혼동되지 않도록 분리한 주식 분석/콘솔형 서브 프로젝트 페이지입니다. 이후 차트, 종목 비교, 리포트 자동화 내용을 추가할 수 있습니다.',
-      status: '설계 슬롯',
-      route: '/projects/stock-console',
-      role: 'Data Dashboard · Service Planning',
-      stack: ['React', 'TypeScript', 'Data Visualization', 'Report UX'],
-      points: [
-        'FallAI 메인 프로젝트 라우트와 명확히 분리',
-        '서브 프로젝트 목록과 상세 URL에서 독립 확인',
-        '추후 API, 차트, 포트폴리오 리포트 구조를 추가하기 쉬운 데이터 기반 구성',
-      ],
-      links: [
-        {
-          label: '서브 프로젝트 목록',
-          href: '#/projects',
-          description: '전체 서브페이지 라우트 확인',
-        },
-      ],
-    },
-    {
-      slug: 'data-quality',
-      title: 'Data Quality Report',
-      eyebrow: 'Future Project',
-      summary:
-        '학습 데이터 분포, 누락, 라벨 품질을 자동 점검하는 리포트 자동화 프로젝트 슬롯입니다.',
-      status: '추가 예정',
-      route: '/projects/data-quality',
-      role: 'Dataset QA · Experiment Tracking',
-      stack: ['Python', 'Pandas', 'Model Evaluation', 'Dashboard'],
-      points: [
-        '라벨 분포와 누락 파일을 자동 점검',
-        '모델 성능 변화와 데이터 변경 이력을 함께 기록',
-        '행동분류 데이터셋 제작 매뉴얼과 연결 가능',
-      ],
-      links: [
-        {
-          label: '서브 프로젝트 목록',
-          href: '#/projects',
-          description: '전체 서브페이지 라우트 확인',
-        },
-      ],
-    },
-  ] satisfies SubProject[],
   contact: {
     message:
       'AI/Data 프로젝트, IT 서비스기획, 데이터 기반 문제 해결 역할에 관심이 있습니다.',
