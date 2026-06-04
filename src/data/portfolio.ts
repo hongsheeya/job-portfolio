@@ -1,5 +1,5 @@
 import pipelineVisual from '../assets/fallai-pipeline.svg';
-import runtimeScreen from '../assets/fallai-runtime-screen.png';
+import runtimeScreen from '../assets/fallai-runtime-screen.svg';
 
 export type Metric = {
   label: string;
