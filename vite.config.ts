@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
@@ -16,6 +16,12 @@ function pagesCompatibilityPlugin() {
 
       if (existsSync(indexHtml)) {
         copyFileSync(indexHtml, resolve(distDir, '404.html'));
+
+        ['projects/fallai', 'projects/phantom3d', 'projects/infinitystock'].forEach((route) => {
+          const routeDir = resolve(distDir, route);
+          mkdirSync(routeDir, { recursive: true });
+          copyFileSync(indexHtml, resolve(routeDir, 'index.html'));
+        });
       }
 
       const aliases = [
