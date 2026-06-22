@@ -1032,6 +1032,218 @@ h3 {
   line-height: 1.7;
 }
 
+.stockFigure {
+  max-width: 1280px;
+}
+
+.stockShell {
+  background: #f5f8fb;
+  border: 1px solid #d9e2ec;
+  color: #172033;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  padding: 24px;
+}
+
+.stockTopbar,
+.stockAssetGrid,
+.stockCyclePanel {
+  grid-column: 1 / -1;
+}
+
+.stockTopbar {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 68px;
+  padding: 14px 18px;
+}
+
+.stockTopbar div {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.stockLogo {
+  align-items: center;
+  background: #18314f;
+  border-radius: 10px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 950;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.stockTopbar strong {
+  color: var(--navy);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.stockTopbar nav {
+  display: flex;
+  gap: 8px;
+}
+
+.stockTopbar nav span {
+  border: 1px solid #d9e2ec;
+  border-radius: 999px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 8px 12px;
+}
+
+.stockTopbar nav .active {
+  background: #eef7f5;
+  border-color: #b6dfd4;
+  color: var(--teal);
+}
+
+.stockAssetGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stockAssetGrid article,
+.stockCyclePanel,
+.stockSyncRail {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(24, 49, 79, 0.06);
+}
+
+.stockAssetGrid article {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+
+.stockAssetGrid span,
+.stockPanelHead small,
+.stockSyncRail span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.stockAssetGrid strong {
+  color: #172033;
+  font-size: 28px;
+  font-weight: 950;
+}
+
+.stockAssetGrid small {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.stockCyclePanel {
+  display: grid;
+  gap: 14px;
+  grid-column: 1 / 2;
+  padding: 22px;
+}
+
+.stockPanelHead {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stockPanelHead div {
+  display: grid;
+  gap: 4px;
+}
+
+.stockPanelHead strong {
+  color: var(--navy);
+  font-size: 23px;
+}
+
+.stockPanelHead em,
+.stockCycleRow em {
+  background: #e8f8f2;
+  border: 1px solid #b6e8d5;
+  border-radius: 999px;
+  color: var(--teal);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  padding: 7px 10px;
+}
+
+.stockCycleTable {
+  display: grid;
+  gap: 10px;
+}
+
+.stockCycleRow {
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 0.8fr 0.6fr 0.5fr 0.7fr 0.6fr 0.8fr;
+  padding: 14px;
+}
+
+.stockCycleRow span {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.stockCycleRow .stockSymbol {
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.stockCycleRow strong {
+  color: #ef4444;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.stockSyncRail {
+  align-content: start;
+  display: grid;
+  gap: 12px;
+  grid-column: 2 / 3;
+  padding: 22px;
+}
+
+.stockSyncRail strong {
+  color: var(--navy);
+  font-size: 19px;
+}
+
+.stockSyncRail span {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.stockSyncRail i {
+  background: #10b981;
+  border-radius: 999px;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+}
+
 .phantomFigure {
   max-width: 1280px;
 }
@@ -1434,13 +1646,19 @@ h3 {
   background: #ffffff;
   color: #172033;
   display: grid;
-  gap: 18px;
-  min-height: 277mm;
-  padding: 18mm 16mm;
+  gap: 14px;
+  height: 297mm;
+  overflow: hidden;
+  padding: 15mm 16mm;
+  width: 210mm;
+  break-after: page;
+  break-inside: avoid;
   page-break-after: always;
+  page-break-inside: avoid;
 }
 
 .pdfPage:last-child {
+  break-after: auto;
   page-break-after: auto;
 }
 
@@ -1626,8 +1844,9 @@ h3 {
 
   .portfolioPdfDocument {
     display: block;
-    inset: 0;
-    position: absolute;
+    margin: 0;
+    position: static;
+    width: 210mm;
   }
 
   .hero,

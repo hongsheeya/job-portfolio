@@ -9,7 +9,7 @@ const detailSections = [
 ] as const;
 
 export function PortfolioPdf() {
-  const { person, about, mainProject, phantom3DProject, skills, experience, contact } = portfolio;
+  const { person, about, mainProject, phantom3DProject, infinityStockProject, skills, experience, contact } = portfolio;
 
   return (
     <article className="portfolioPdfDocument" aria-label="PDF 출력용 포트폴리오">
@@ -113,6 +113,27 @@ export function PortfolioPdf() {
         <h3>구현 포인트</h3>
         <ul className="pdfList columns">
           {phantom3DProject.highlights.slice(0, 6).map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="pdfPage">
+        <p className="pdfKicker">FinTech Automation Platform</p>
+        <h2>{infinityStockProject.title}</h2>
+        <p className="pdfLead">{infinityStockProject.summary}</p>
+        <div className="pdfMetricGrid">
+          {infinityStockProject.metrics.map((metric) => (
+            <div className="pdfMetric" key={metric.label}>
+              <span>{metric.label}</span>
+              <strong>{metric.value}</strong>
+              <p>{metric.detail}</p>
+            </div>
+          ))}
+        </div>
+        <h3>운영 개선 포인트</h3>
+        <ul className="pdfList columns">
+          {infinityStockProject.highlights.slice(0, 6).map((highlight) => (
             <li key={highlight}>{highlight}</li>
           ))}
         </ul>

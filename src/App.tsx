@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FallAIPage } from './pages/FallAIPage';
 import { Home } from './pages/Home';
+import { InfinityStockPage } from './pages/InfinityStockPage';
 import { Phantom3DPage } from './pages/Phantom3DPage';
 import { currentRoute, routes } from './routes';
 
@@ -20,6 +21,10 @@ export default function App() {
 
   if (route === routes.phantom3D) {
     return <Phantom3DPage />;
+  }
+
+  if (route === routes.infinityStock) {
+    return <InfinityStockPage />;
   }
 
   return <Home />;

@@ -1,10 +1,23 @@
 import { FallAIScreenPreview } from './FallAIScreenPreview';
+import { InfinityStockScreenPreview } from './InfinityStockScreenPreview';
 import { Phantom3DScreenPreview } from './Phantom3DScreenPreview';
 import type { MainProject as MainProjectType } from '../data/portfolio';
 
 type MainProjectProps = {
   project: MainProjectType;
 };
+
+function ProjectPreview({ preview }: { preview: MainProjectType['preview'] }) {
+  if (preview === 'fallai') {
+    return <FallAIScreenPreview />;
+  }
+
+  if (preview === 'phantom3d') {
+    return <Phantom3DScreenPreview />;
+  }
+
+  return <InfinityStockScreenPreview />;
+}
 
 export function MainProject({ project }: MainProjectProps) {
   return (
@@ -53,7 +66,7 @@ export function MainProject({ project }: MainProjectProps) {
         </div>
       </div>
 
-      {project.preview === 'fallai' ? <FallAIScreenPreview /> : <Phantom3DScreenPreview />}
+      <ProjectPreview preview={project.preview} />
 
       <div className="metricGrid">
         {project.metrics.map((metric) => (

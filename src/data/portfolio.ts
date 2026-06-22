@@ -1,4 +1,5 @@
 import pipelineVisual from '../assets/fallai-pipeline.svg';
+import infinityStockVisual from '../assets/infinitystock-pipeline.svg';
 import phantom3DVisual from '../assets/phantom3d-pipeline.svg';
 
 export type Metric = {
@@ -15,7 +16,7 @@ export type MainProject = {
   summary: string;
   visual: string;
   visualAlt: string;
-  preview: 'fallai' | 'phantom3d';
+  preview: 'fallai' | 'phantom3d' | 'infinitystock';
   links: ProjectLink[];
   stack: string[];
   highlights: string[];
@@ -97,6 +98,21 @@ export const portfolio = {
         '중첩 분할 타임라인과 분석 로그로 판단 근거를 화면화',
       ],
       detailLabel: 'FallAI 상세 보기',
+    },
+    {
+      title: 'InfinityStock 자동매매 운영 플랫폼',
+      route: '/projects/infinitystock',
+      category: 'FinTech Automation Platform',
+      summary:
+        '증권사 API, FireGate 포트폴리오, 무한매수 사이클, 거래이력과 PDF 가이드북을 하나의 운영 흐름으로 연결한 주식 자동화 웹서비스입니다.',
+      role: 'Full-stack · Broker API Integration · Automation Reliability',
+      stack: ['WIZ', 'Python', 'Angular', 'KIS Open API', 'Toss API', 'FireGate Sync'],
+      points: [
+        'KIS/토스 증권사 선택형 API 설정과 사용자별 민감 설정 분리',
+        '무한매수 SOXL/TQQQ 사이클, LOC 예약, FireGate 자동 동기화 구조 구현',
+        '대시보드 자산/평가액 재계산, 거래이력 성능 개선, PDF 가이드북 제공',
+      ],
+      detailLabel: 'InfinityStock 상세 보기',
     },
     {
       title: 'phantom3D 피부 팬텀 3D 측정 웹앱',
@@ -282,6 +298,104 @@ export const portfolio = {
       '도메인 이해: 일반 사진, 스케일 보정 사진, LiDAR/스캔 모델의 측정 신뢰도를 명확히 구분',
       '프론트엔드 구현: Three.js 뷰어, Canvas 분석, 파일 업로드, 카메라 촬영, 리포트 내보내기를 단일 작업 흐름으로 연결',
       '사용성 개선: 로그인 제거, 초기화 상태 정리, 하단 수치 고정, 파일 형식 안내로 반복 측정 도구 UX 강화',
+    ],
+  } satisfies MainProject,
+  infinityStockProject: {
+    title: 'InfinityStock 자동매매 운영 플랫폼',
+    subtitle: '증권사 API, FireGate, 무한매수 사이클을 연결한 실계좌 운영 보조 웹서비스',
+    period: '2026',
+    role: 'Full-stack Architecture · Broker API Integration · Automation Reliability',
+    summary:
+      'InfinityStock은 한국투자증권과 토스증권 API 설정, FireGate 포트폴리오 동기화, SOXL/TQQQ 무한매수 사이클, LOC 예약매매, 거래이력 정리, 사용자 가이드북까지 한 흐름으로 묶은 주식 자동화 운영 플랫폼입니다. 실전 운영 중 발생한 주문가능금액 불일치, 평가액 이중계산, 사이클 미동기화, 예약 주문 누락, PDF 가이드 공백 같은 문제를 계좌 API와 화면 UX 양쪽에서 추적하고 복구하는 데 집중했습니다.',
+    visual: infinityStockVisual,
+    visualAlt: 'InfinityStock 자동매매 운영 플랫폼 처리 흐름',
+    preview: 'infinitystock',
+    links: [
+      {
+        label: '운영 프로젝트 저장소',
+        href: 'https://github.com/hongsheeya/stock8',
+        description: 'WIZ 기반 주식 자동화 운영 플랫폼 코드',
+      },
+      {
+        label: '포트폴리오 저장소',
+        href: 'https://github.com/hongsheeya/job-portfolio',
+        description: 'React/Vite 기반 GitHub Pages 포트폴리오 코드',
+      },
+    ],
+    stack: [
+      'Python',
+      'WIZ',
+      'Angular',
+      'TypeScript',
+      'Pug/SCSS',
+      'KIS Open API',
+      'Toss Open API',
+      'FireGate',
+      'ReportLab',
+    ],
+    highlights: [
+      '한국투자증권 중심 구조에서 증권사 선택형 설정으로 확장하고 토스증권 API 입력 흐름 추가',
+      'API Key, 계좌번호, FireGate 연결 정보를 사용자별 설정으로 분리해 신규 가입자 정보 오염 방지',
+      'SOXL/TQQQ 무한매수와 단타 기능을 분리하고, 단타 기능은 관리자 승인 없이는 보이지 않도록 봉인',
+      'FireGate 포트폴리오 기준으로 시드, 분할 수, 목표 수익률, 보유 수량, 평균가를 사이클에 동기화',
+      '매일 오전 체결 확인, LOC 매수/매도 예약, 예약 재시도, 수동 매매 반영을 자동화 흐름에 포함',
+      '대시보드 자산·매수가능액·포트폴리오 평가액 계산 기준을 브로커 API 필드 중심으로 재정리',
+      '거래이력 대량 로딩을 최신 우선 + 더보기 방식으로 바꾸고 오래된 로그 조회 비용을 낮춤',
+      '회원가입, 증권사 API 발급, ETF 거래교육, FireGate 연결까지 일반 사용자가 따라 할 수 있는 PDF 가이드북 제작',
+    ],
+    metrics: [
+      {
+        label: 'Broker API',
+        value: 'KIS · Toss',
+        detail: '증권사 선택형 API 설정과 연결 테스트 흐름으로 확장',
+      },
+      {
+        label: 'Automation',
+        value: 'LOC · Sync',
+        detail: '무한매수 예약매매와 FireGate/체결 동기화를 운영 흐름에 통합',
+      },
+      {
+        label: 'Reliability',
+        value: 'Guarded UX',
+        detail: '단타 기능 봉인, 캐시 복구, 거래이력 경량화로 운영 리스크 축소',
+      },
+    ],
+    problem: [
+      '실계좌 API는 국내/해외/통합증거금/환율/미결제금액 필드가 분리되어 있어 화면에서 임의 계산하면 자산과 평가액이 쉽게 어긋났습니다.',
+      'FireGate에서 관리하는 무한매수 포트폴리오와 사이트 내부 사이클이 자동으로 맞지 않으면 보유 수량, 평균가, 회차가 달라져 예약매매 판단이 흔들렸습니다.',
+      'SOXL/TQQQ는 무한매수 대상이면서 사용자가 직접 사고팔 수도 있어 자동매매 기록과 수동 거래 반영이 섞일 위험이 있었습니다.',
+      '단타 기능과 무한매수 기능이 같은 대시보드에 존재하면 일반 사용자가 원하지 않는 자동매매를 실수로 켤 수 있었습니다.',
+      '거래이력과 대시보드가 많은 API 호출과 오래된 로그를 한 번에 읽으면 첫 화면이 느려지고, 실패 시 0원 화면으로 떨어지는 문제가 있었습니다.',
+    ],
+    approach: [
+      '증권사 설정을 provider 기반으로 바꾸고 한국투자증권과 토스증권만 활성화해 API 입력 UI를 단계적으로 확장했습니다.',
+      'KIS 주문가능금액, 국내 잔고, 해외 잔고, 현재가, 환율 필드를 출처와 함께 분리해 대시보드 진단 정보로 노출했습니다.',
+      'FireGate 포트폴리오를 InfinityStock 전용 분류로 구분하고, 사이트 사이클과 거래 기록을 자동으로 밀고 당기는 동기화 경로를 만들었습니다.',
+      '무한매수 매매 OFF, 종목별 운영 ON/OFF, 예약 재시도, 오전 체결 반영, LOC 매수·매도 예약을 워커와 대시보드 양쪽에서 점검하도록 구성했습니다.',
+      '단타 기능은 하드락 플래그와 관리자 설정, 사용자 경고 확인 절차를 분리해 일반 사용자 화면에서 보이지 않도록 정리했습니다.',
+      '대시보드에는 마지막 정상 상태 캐시를 적용하고, 실패한 빈 payload가 정상 값을 덮어쓰지 못하도록 방어했습니다.',
+    ],
+    pipeline: [
+      '회원가입 후 사용자별 증권사 provider와 API Key/Secret, 계좌 정보를 저장',
+      '브로커 연결 테스트로 주문가능금액, 잔고, 현재가, 환율 조회 가능 여부 확인',
+      'FireGate OAuth/포트폴리오 동기화로 SOXL/TQQQ 무한매수 기준값을 사이트 사이클에 반영',
+      '대시보드에서 무한매수 ON/OFF와 종목별 운영 상태를 확인하고 LOC 예약 대기 상태 표시',
+      '예약 시간대에 FireGate 기준값을 재동기화한 뒤 LOC 매수와 목표 수익률 도달 시 LOC 매도 예약',
+      '다음 날 오전 8시부터 1시간 동안 10분 간격으로 체결 내역을 확인해 사이클 거래로 반영',
+      '거래이력은 최신 기록을 먼저 보여주고, 오래된 로그는 더보기로 지연 조회',
+    ],
+    improvements: [
+      '증권사 선택 드롭다운, 로고형 카드, 지원/비활성 상태 표시를 적용해 KIS와 토스만 실사용 대상으로 구분',
+      '신규 가입자가 기존 관리자 API를 보게 되는 문제를 막기 위해 민감 설정을 사용자 스코프로 분리',
+      '대시보드 로딩 지연과 빈 화면 문제를 줄이기 위해 overview 캐시, localStorage 복원, stale payload 방어를 적용',
+      '거래이력에서 5000건 덤프와 브로커 동기화를 기본 진입에서 제거하고, 최신 우선 페이징과 더보기 흐름으로 전환',
+      '사용자 가이드북 Markdown과 ReportLab PDF 생성을 추가하고 설정 화면에서 PDF 다운로드 가능하게 연결',
+      '화이트 모드 대비, 버튼 줄바꿈, modal confirm 문구, 설정 중앙 정렬 등 운영 화면의 반복 사용성을 개선',
+    ],
+    evidence: [
+      '운영 안정화: 예약매매 500 오류, LOC 매도 스킵 조건, FireGate 자동 동기화 누락, 대시보드 0원 fallback 원인을 코드 레벨에서 추적하고 수정',
+      'API 연동: 한국투자증권과 토스증권의 인증·잔고·주문가능금액·LOC 주문 경로를 provider abstraction으로 확장',
+      '제품화 관점: 일반 사용자가 API 발급, ETF 교육, FireGate 연결, 무한매수 ON/OFF를 따라 할 수 있도록 PDF 가이드와 설정 UI를 정비',
     ],
   } satisfies MainProject,
   skills: [

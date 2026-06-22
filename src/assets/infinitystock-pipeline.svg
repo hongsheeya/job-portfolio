@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">InfinityStock automation pipeline</title>
+  <desc id="desc">Broker APIs, FireGate sync, automation worker, dashboard and guidebook flow.</desc>
+  <rect width="1200" height="720" fill="#f6f8fb"/>
+  <rect x="54" y="54" width="1092" height="612" rx="28" fill="#ffffff" stroke="#d9e2ec" stroke-width="3"/>
+  <text x="90" y="116" fill="#18314f" font-family="Arial, sans-serif" font-size="42" font-weight="800">InfinityStock</text>
+  <text x="90" y="154" fill="#5b6678" font-family="Arial, sans-serif" font-size="20" font-weight="600">Broker API + FireGate + LOC automation operating flow</text>
+
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(90 220)">
+      <rect width="230" height="132" rx="18" fill="#eef7f5" stroke="#9fd8cc" stroke-width="2"/>
+      <circle cx="40" cy="42" r="18" fill="#11806a"/>
+      <text x="72" y="48" fill="#18314f" font-size="24" font-weight="800">API Settings</text>
+      <text x="28" y="86" fill="#334155" font-size="17">KIS · Toss · Account</text>
+      <text x="28" y="112" fill="#64748b" font-size="15">user-scoped credentials</text>
+    </g>
+
+    <g transform="translate(390 220)">
+      <rect width="230" height="132" rx="18" fill="#f5f7ff" stroke="#b8c7ff" stroke-width="2"/>
+      <circle cx="40" cy="42" r="18" fill="#24476b"/>
+      <text x="72" y="48" fill="#18314f" font-size="24" font-weight="800">FireGate Sync</text>
+      <text x="28" y="86" fill="#334155" font-size="17">seed · splits · target</text>
+      <text x="28" y="112" fill="#64748b" font-size="15">SOXL/TQQQ cycles</text>
+    </g>
+
+    <g transform="translate(690 220)">
+      <rect width="230" height="132" rx="18" fill="#fff8eb" stroke="#ecc979" stroke-width="2"/>
+      <circle cx="40" cy="42" r="18" fill="#a87916"/>
+      <text x="72" y="48" fill="#18314f" font-size="24" font-weight="800">Automation</text>
+      <text x="28" y="86" fill="#334155" font-size="17">LOC buy/sell reservation</text>
+      <text x="28" y="112" fill="#64748b" font-size="15">morning fill sync worker</text>
+    </g>
+
+    <g transform="translate(390 454)">
+      <rect width="420" height="130" rx="22" fill="#eef2ff" stroke="#b8c7ff" stroke-width="2"/>
+      <text x="32" y="46" fill="#18314f" font-size="25" font-weight="800">Dashboard &amp; History</text>
+      <text x="32" y="82" fill="#334155" font-size="18">asset reconciliation · cached overview · load-more logs</text>
+      <text x="32" y="108" fill="#64748b" font-size="15">guidebook PDF download for general users</text>
+    </g>
+
+    <path d="M320 286 H390" fill="none" stroke="#24476b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M620 286 H690" fill="none" stroke="#24476b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M805 352 C800 420 735 454 620 454" fill="none" stroke="#24476b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M505 352 C500 408 495 428 500 454" fill="none" stroke="#24476b" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="384,286 370,278 370,294" fill="#24476b"/>
+    <polygon points="684,286 670,278 670,294" fill="#24476b"/>
+    <polygon points="628,452 642,443 644,459" fill="#24476b"/>
+  </g>
+</svg>
