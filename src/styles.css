@@ -82,6 +82,19 @@ img {
   padding: 0;
 }
 
+.navPdfButton {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--navy);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 850;
+  min-height: 36px;
+  padding: 0 12px;
+}
+
 .heroInner {
   display: grid;
   gap: 44px;
@@ -194,6 +207,8 @@ h3 {
   background: #ffffff;
   border: 1px solid var(--line);
   color: var(--navy);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .heroPanel {
@@ -1044,6 +1059,217 @@ h3 {
   padding: 13px 18px;
 }
 
+.portfolioPdfDocument {
+  display: none;
+}
+
+.pdfPage {
+  background: #ffffff;
+  color: #172033;
+  display: grid;
+  gap: 18px;
+  min-height: 277mm;
+  padding: 18mm 16mm;
+  page-break-after: always;
+}
+
+.pdfPage:last-child {
+  page-break-after: auto;
+}
+
+.pdfCover {
+  align-content: center;
+  background: #f6f8fb;
+  border-left: 10px solid var(--navy);
+}
+
+.pdfCover h1 {
+  font-size: 58px;
+  margin-bottom: 8px;
+}
+
+.pdfKicker {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.pdfHeadline,
+.pdfLead {
+  color: #334155;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.pdfHeadline {
+  font-size: 22px;
+  max-width: 700px;
+}
+
+.pdfMetaGrid,
+.pdfMetricGrid,
+.pdfSkillGrid,
+.pdfContactGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.pdfMetaGrid div,
+.pdfMiniCard,
+.pdfMetric,
+.pdfDetailCard,
+.pdfTimelineItem,
+.pdfContactGrid a {
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.pdfMetaGrid span,
+.pdfMetric span,
+.pdfContactGrid span {
+  color: var(--muted);
+  display: block;
+  font-size: 11px;
+  font-weight: 850;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.pdfMetaGrid strong,
+.pdfMetric strong,
+.pdfContactGrid strong {
+  color: var(--navy);
+  display: block;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.pdfMetaGrid small {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.pdfPage h2 {
+  font-size: 34px;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.pdfPage h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.pdfList,
+.pdfTimelineItem ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.pdfList.columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pdfList li,
+.pdfTimelineItem li,
+.pdfDetailCard li,
+.pdfMiniCard p,
+.pdfMetric p,
+.pdfTimelineItem p {
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.pdfDetailGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pdfDetailCard:nth-child(3),
+.pdfDetailCard:nth-child(5) {
+  grid-column: 1 / -1;
+}
+
+.pdfDetailCard ol {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.pdfTimeline {
+  display: grid;
+  gap: 10px;
+}
+
+.pdfTimelineItem {
+  display: grid;
+  gap: 8px;
+}
+
+.pdfTimelineItem > div {
+  align-items: baseline;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.pdfTimelineItem span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.pdfContactPage {
+  align-content: center;
+}
+
+@page {
+  margin: 0;
+  size: A4;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .portfolioPdfDocument,
+  .portfolioPdfDocument * {
+    visibility: visible;
+  }
+
+  .portfolioPdfDocument {
+    display: block;
+    inset: 0;
+    position: absolute;
+  }
+
+  .hero,
+  .detailHero,
+  main {
+    display: none;
+  }
+}
+
 @media (max-width: 900px) {
   .nav {
     align-items: flex-start;
@@ -1164,7 +1390,8 @@ h3 {
     font-size: 36px;
   }
 
-  .heroActions a {
+  .heroActions a,
+  .heroActions button {
     width: 100%;
   }
 

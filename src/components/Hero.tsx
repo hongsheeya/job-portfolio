@@ -1,4 +1,5 @@
 import { appHref, routes } from '../routes';
+import { PdfExportButton } from './PdfExportButton';
 
 type HeroProps = {
   person: {
@@ -40,6 +41,7 @@ export function Hero({ person }: HeroProps) {
               {item.label}
             </a>
           ))}
+          <PdfExportButton className="navPdfButton" />
         </div>
       </nav>
 
@@ -57,6 +59,7 @@ export function Hero({ person }: HeroProps) {
             <a className="primaryButton" href="#projects">
               프로젝트 보기
             </a>
+            <PdfExportButton className="secondaryButton" />
             <a className="secondaryButton" href={`mailto:${person.email}`}>
               연락하기
             </a>

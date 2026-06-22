@@ -3,6 +3,7 @@ import { Contact } from '../components/Contact';
 import { Experience } from '../components/Experience';
 import { FeaturedProjects } from '../components/FeaturedProjects';
 import { Hero } from '../components/Hero';
+import { PortfolioPdf } from '../components/PortfolioPdf';
 import { Skills } from '../components/Skills';
 import { portfolio } from '../data/portfolio';
 
@@ -17,6 +18,7 @@ export function Home() {
         <Experience items={portfolio.experience} />
         <Contact contact={portfolio.contact} />
       </main>
+      <PortfolioPdf />
     </>
   );
 }

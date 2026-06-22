@@ -1,5 +1,7 @@
 import { Contact } from '../components/Contact';
 import { MainProject } from '../components/MainProject';
+import { PdfExportButton } from '../components/PdfExportButton';
+import { PortfolioPdf } from '../components/PortfolioPdf';
 import { ProjectDetail } from '../components/ProjectDetail';
 import { portfolio } from '../data/portfolio';
 import { appHref, routes } from '../routes';
@@ -27,6 +29,7 @@ export function FallAIPage() {
             <button type="button" onClick={() => scrollToSection('contact')}>
               Contact
             </button>
+            <PdfExportButton className="navPdfButton" />
           </div>
         </nav>
         <section className="detailHeroInner">
@@ -40,6 +43,7 @@ export function FallAIPage() {
         <ProjectDetail project={portfolio.mainProject} />
         <Contact contact={portfolio.contact} />
       </main>
+      <PortfolioPdf />
     </>
   );
 }
