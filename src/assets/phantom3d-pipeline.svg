@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">phantom3D processing pipeline</title>
+  <desc id="desc">Photo capture, wound candidate analysis, heightmap generation, 3D measurement, and report export pipeline.</desc>
+  <rect width="960" height="560" rx="28" fill="#f7fafc"/>
+  <rect x="44" y="42" width="872" height="476" rx="24" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+  <text x="76" y="90" fill="#18314f" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">phantom3D Measurement Flow</text>
+  <text x="76" y="122" fill="#5b6678" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Photo estimate + LiDAR/scan model measurement</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="76" y="172" width="156" height="118" rx="18" fill="#eef7f5" stroke="#bfe2db" stroke-width="2"/>
+    <circle cx="124" cy="216" r="24" fill="#11806a"/>
+    <path d="M110 217h28m-14-14v28" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    <text x="104" y="264" fill="#18314f" font-size="17" font-weight="800">Photo</text>
+    <text x="104" y="284" fill="#5b6678" font-size="13" font-weight="600">capture/upload</text>
+
+    <path d="M248 231h74" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round"/>
+    <path d="m316 219 16 12-16 12" fill="none" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="342" y="172" width="156" height="118" rx="18" fill="#f5f8fb" stroke="#d9e2ec" stroke-width="2"/>
+    <circle cx="390" cy="216" r="24" fill="#24476b"/>
+    <path d="M380 216c7-18 29-18 36 0-7 18-29 18-36 0Z" fill="none" stroke="#fff" stroke-width="5"/>
+    <circle cx="398" cy="216" r="6" fill="#fff"/>
+    <text x="370" y="264" fill="#18314f" font-size="17" font-weight="800">Detect</text>
+    <text x="370" y="284" fill="#5b6678" font-size="13" font-weight="600">wound candidates</text>
+
+    <path d="M514 231h74" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round"/>
+    <path d="m582 219 16 12-16 12" fill="none" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="608" y="172" width="156" height="118" rx="18" fill="#fff8ed" stroke="#e8cf9c" stroke-width="2"/>
+    <circle cx="656" cy="216" r="24" fill="#a87916"/>
+    <path d="M640 222c12-14 22-14 34 0 8-8 16-8 24 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+    <text x="636" y="264" fill="#18314f" font-size="17" font-weight="800">Heightmap</text>
+    <text x="636" y="284" fill="#5b6678" font-size="13" font-weight="600">estimated mesh</text>
+
+    <path d="M686 314v46" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round"/>
+    <path d="m674 354 12 16 12-16" fill="none" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="474" y="390" width="156" height="86" rx="18" fill="#eef4f8" stroke="#cad8e6" stroke-width="2"/>
+    <text x="508" y="428" fill="#18314f" font-size="17" font-weight="800">Measure</text>
+    <text x="508" y="450" fill="#5b6678" font-size="13" font-weight="600">distance · depth · area</text>
+
+    <path d="M454 432H340" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round"/>
+    <path d="m346 420-16 12 16 12" fill="none" stroke="#a9b8c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="164" y="390" width="156" height="86" rx="18" fill="#f5f8fb" stroke="#d9e2ec" stroke-width="2"/>
+    <text x="194" y="428" fill="#18314f" font-size="17" font-weight="800">Report</text>
+    <text x="194" y="450" fill="#5b6678" font-size="13" font-weight="600">PDF · CSV · JSON</text>
+
+    <rect x="750" y="372" width="120" height="44" rx="22" fill="#18314f"/>
+    <text x="776" y="400" fill="#ffffff" font-size="14" font-weight="800">LiDAR/Scan</text>
+    <path d="M748 396H646" stroke="#18314f" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 8"/>
+  </g>
+</svg>

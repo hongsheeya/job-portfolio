@@ -1,6 +1,6 @@
 # Job Portfolio
 
-AI/Data/IT 서비스기획 직무 지원용 GitHub Pages 포트폴리오입니다. 전체 포트폴리오 홈에서 핵심 프로젝트를 요약하고, **AI 기반 행동분류 및 낙상 판단 보조 시스템**은 별도 상세 라우트에서 깊게 설명합니다.
+AI/Data/IT 서비스기획 직무 지원용 GitHub Pages 포트폴리오입니다. 전체 포트폴리오 홈에서 핵심 프로젝트를 요약하고, **AI 기반 행동분류 및 낙상 판단 보조 시스템**과 **phantom3D 피부 팬텀 3D 측정 웹앱**은 별도 상세 라우트에서 깊게 설명합니다.
 
 ## 실행 방법
 
@@ -24,6 +24,7 @@ GitHub Pages 새로고침 안정성을 위해 내부 화면은 hash route를 사
 
 - `#/` — 전체 포트폴리오 홈
 - `#/projects/fallai` — FallAI 낙상 판단 보조 프로젝트 상세
+- `#/projects/phantom3d` — phantom3D 피부 팬텀 3D 측정 웹앱 상세
 
 ## GitHub Pages 배포
 
@@ -52,13 +53,15 @@ src/
  │   ├─ MainProject.tsx
  │   ├─ FeaturedProjects.tsx
  │   ├─ FallAIScreenPreview.tsx
+ │   ├─ Phantom3DScreenPreview.tsx
  │   ├─ ProjectDetail.tsx
  │   ├─ Skills.tsx
  │   ├─ Experience.tsx
  │   └─ Contact.tsx
  ├─ pages/
  │   ├─ Home.tsx
- │   └─ FallAIPage.tsx
+ │   ├─ FallAIPage.tsx
+ │   └─ Phantom3DPage.tsx
  ├─ routes.ts
  └─ assets/
 ```
@@ -69,7 +72,9 @@ src/
 
 - 전체 포트폴리오 홈: `featuredProjects`의 요약 카드 사용
 - FallAI 상세 페이지: `mainProject`의 문제 정의, 구현 근거, 파이프라인, 개선 경험 사용
+- phantom3D 상세 페이지: `phantom3DProject`의 3D 뷰어, 사진 기반 분석, LiDAR/스캔 측정 구조 사용
 - FallAI 구동 화면형 UI: `src/components/FallAIScreenPreview.tsx`
+- phantom3D 작업 화면형 UI: `src/components/Phantom3DScreenPreview.tsx`
 
 ## 현재 메인 프로젝트
 
@@ -81,3 +86,13 @@ src/
 - 행동분류 모델 학습 및 테스트 구조 설계
 - 실시간 화면에서 원본/스켈레톤 전환 기능 구현
 - 낙상 판단 모델의 보조 판단 근거로 확장 가능성 검토
+
+## 추가 상세 프로젝트
+
+**phantom3D 피부 팬텀 3D 측정 웹앱**
+
+- Three.js 기반 3D 모델 뷰어와 표면 포인트 측정 UI 구현
+- 사진 업로드/카메라 촬영 후 상처 후보 분석과 높이맵 추정 모델 생성
+- GLB, GLTF, OBJ, STL, PLY 스캔 모델 업로드 지원
+- 기준자/캘리브레이션 마커 기반 스케일 보정과 신뢰도 라벨 표시
+- 상처 깊이, 면적, 둘레, 추정 부피, PDF/CSV/JSON 리포트 내보내기 구현

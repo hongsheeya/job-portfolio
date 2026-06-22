@@ -9,7 +9,7 @@ const detailSections = [
 ] as const;
 
 export function PortfolioPdf() {
-  const { person, about, mainProject, skills, experience, contact } = portfolio;
+  const { person, about, mainProject, phantom3DProject, skills, experience, contact } = portfolio;
 
   return (
     <article className="portfolioPdfDocument" aria-label="PDF 출력용 포트폴리오">
@@ -95,6 +95,27 @@ export function PortfolioPdf() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="pdfPage">
+        <p className="pdfKicker">3D Research Web App</p>
+        <h2>{phantom3DProject.title}</h2>
+        <p className="pdfLead">{phantom3DProject.summary}</p>
+        <div className="pdfMetricGrid">
+          {phantom3DProject.metrics.map((metric) => (
+            <div className="pdfMetric" key={metric.label}>
+              <span>{metric.label}</span>
+              <strong>{metric.value}</strong>
+              <p>{metric.detail}</p>
+            </div>
+          ))}
+        </div>
+        <h3>구현 포인트</h3>
+        <ul className="pdfList columns">
+          {phantom3DProject.highlights.slice(0, 6).map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="pdfPage">

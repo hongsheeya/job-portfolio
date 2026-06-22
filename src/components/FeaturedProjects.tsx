@@ -38,7 +38,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
               ))}
             </div>
             <a className="primaryButton" href={appHref(project.route)}>
-              FallAI 상세 보기
+              {project.detailLabel}
             </a>
           </article>
         ))}

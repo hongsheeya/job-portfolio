@@ -1032,6 +1032,373 @@ h3 {
   line-height: 1.7;
 }
 
+.phantomFigure {
+  max-width: 1280px;
+}
+
+.phantomShell {
+  background: #f5f7fa;
+  color: #172033;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 720px;
+}
+
+.phantomTopbar {
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #d9e2ec;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(180px, 0.5fr) auto minmax(320px, 1fr);
+  min-height: 72px;
+  padding: 14px 22px;
+}
+
+.phantomBrand {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.phantomLogo {
+  align-items: center;
+  background: #0f172a;
+  border-radius: 10px;
+  color: #67e8f9;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 950;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.phantomBrand strong {
+  color: #0f172a;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.phantomTabs {
+  background: #f8fafc;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  display: flex;
+  padding: 4px;
+}
+
+.phantomTabs span,
+.phantomActions span {
+  border-radius: 9px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 850;
+  padding: 9px 13px;
+}
+
+.phantomTabs .active {
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.09);
+  color: #2563eb;
+}
+
+.phantomActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.phantomActions span {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  color: #172033;
+}
+
+.phantomWorkspace {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 70px minmax(260px, 0.45fr) minmax(0, 1fr);
+  min-height: 550px;
+  padding: 14px;
+}
+
+.phantomToolRail {
+  align-items: stretch;
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  display: grid;
+  gap: 8px;
+  padding: 12px 8px;
+}
+
+.phantomToolRail span {
+  align-items: center;
+  border-radius: 10px;
+  color: #64748b;
+  display: flex;
+  font-size: 12px;
+  font-weight: 850;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.phantomToolRail .active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.phantomPanel {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.phantomPanelHead {
+  border-bottom: 1px solid #d9e2ec;
+  display: grid;
+  gap: 3px;
+  padding: 15px 16px;
+}
+
+.phantomPanelHead.row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.phantomPanelHead small {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.phantomPanelHead strong {
+  color: #0f172a;
+  font-size: 18px;
+}
+
+.phantomPanelHead em {
+  background: #eef4ff;
+  border-radius: 999px;
+  color: #2563eb;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  padding: 7px 10px;
+}
+
+.phantomPhoto {
+  background:
+    linear-gradient(#e8eef6 1px, transparent 1px),
+    linear-gradient(90deg, #e8eef6 1px, transparent 1px),
+    #f8fafc;
+  background-size: 28px 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.phantomPhoto::after {
+  background: #e8ac92;
+  bottom: 74px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 130px;
+}
+
+.phantomPhotoLine,
+.phantomWound,
+.phantomScale {
+  position: absolute;
+  z-index: 2;
+}
+
+.phantomPhotoLine {
+  background: #763d30;
+  border-radius: 999px;
+  height: 8px;
+}
+
+.phantomPhotoLine.one {
+  left: 120px;
+  top: 244px;
+  transform: rotate(-60deg);
+  width: 120px;
+}
+
+.phantomPhotoLine.two {
+  right: 88px;
+  top: 222px;
+  transform: rotate(7deg);
+  width: 130px;
+}
+
+.phantomWound.oval {
+  border: 9px solid #7c3f33;
+  border-radius: 999px;
+  height: 76px;
+  right: 46px;
+  top: 276px;
+  width: 96px;
+}
+
+.phantomWound.slit {
+  background: #743b2e;
+  border-radius: 999px;
+  height: 12px;
+  right: 170px;
+  top: 306px;
+  transform: rotate(-16deg);
+  width: 96px;
+}
+
+.phantomScale {
+  background: rgba(79, 48, 39, 0.45);
+  height: 206px;
+  left: 142px;
+  top: 196px;
+  width: 3px;
+}
+
+.phantomViewer {
+  background: linear-gradient(180deg, #f8fafc, #eef3f8);
+  overflow: hidden;
+  position: relative;
+}
+
+.phantomGrid {
+  background:
+    linear-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+  background-size: 32px 32px;
+  bottom: -34px;
+  height: 250px;
+  left: 12%;
+  position: absolute;
+  right: 8%;
+  transform: perspective(520px) rotateX(60deg);
+}
+
+.phantomModel {
+  background: linear-gradient(160deg, #ffc5aa, #e89d7f);
+  border-radius: 8px;
+  box-shadow: 0 44px 60px rgba(120, 65, 45, 0.22);
+  height: 190px;
+  left: 13%;
+  position: absolute;
+  right: 10%;
+  top: 47%;
+  transform: perspective(760px) rotateX(58deg) rotateZ(-2deg);
+}
+
+.phantomModel::after {
+  background: #d98e70;
+  bottom: -42px;
+  content: "";
+  height: 48px;
+  left: 4%;
+  position: absolute;
+  right: 4%;
+  transform: skewX(-10deg);
+}
+
+.phantomCut {
+  border-radius: 999px;
+  position: absolute;
+}
+
+.phantomCut.long {
+  background: #8a4635;
+  height: 8px;
+  left: 28%;
+  top: 48%;
+  transform: rotate(82deg);
+  width: 160px;
+}
+
+.phantomCut.round {
+  border: 18px solid rgba(128, 58, 42, 0.7);
+  height: 80px;
+  right: 12%;
+  top: 33%;
+  width: 190px;
+}
+
+.phantomCut.valley {
+  background: rgba(125, 52, 39, 0.62);
+  height: 18px;
+  right: 28%;
+  top: 58%;
+  transform: rotate(-10deg);
+  width: 160px;
+}
+
+.depthBadge {
+  background: #f97316;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 950;
+  left: 43%;
+  padding: 9px 14px;
+  position: absolute;
+  top: 50%;
+  transform: rotateZ(2deg) rotateX(-58deg);
+}
+
+.phantomResultBar {
+  align-items: stretch;
+  background: #ffffff;
+  border-top: 1px solid #d9e2ec;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(120px, 0.55fr)) minmax(260px, 1fr);
+  padding: 12px 16px;
+}
+
+.phantomResultBar > div {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: grid;
+  gap: 4px;
+  min-height: 58px;
+  padding: 10px 12px;
+}
+
+.phantomResultBar span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.phantomResultBar strong {
+  color: #2563eb;
+  font-size: 21px;
+}
+
+.phantomAnalysis {
+  align-items: center;
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.phantomAnalysis span {
+  background: #f8fafc;
+  border-radius: 999px;
+  color: #172033;
+  padding: 7px 9px;
+}
+
 .contactSection {
   border-top: 1px solid var(--line);
   text-align: center;
@@ -1352,6 +1719,28 @@ h3 {
     border-left: 0;
     border-top: 1px solid #3b3d43;
   }
+
+  .phantomTopbar,
+  .phantomWorkspace,
+  .phantomResultBar {
+    grid-template-columns: 1fr;
+  }
+
+  .phantomActions {
+    justify-content: flex-start;
+  }
+
+  .phantomToolRail {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .phantomToolRail span {
+    min-height: 36px;
+  }
+
+  .phantomPanel {
+    min-height: 360px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1464,5 +1853,76 @@ h3 {
 
   .runtimeFigure figcaption {
     padding: 20px;
+  }
+
+  .phantomShell {
+    min-height: auto;
+  }
+
+  .phantomTopbar {
+    padding: 14px;
+  }
+
+  .phantomBrand strong {
+    font-size: 19px;
+  }
+
+  .phantomTabs,
+  .phantomActions,
+  .phantomToolRail {
+    overflow-x: auto;
+  }
+
+  .phantomTabs span,
+  .phantomActions span,
+  .phantomToolRail span {
+    white-space: nowrap;
+  }
+
+  .phantomWorkspace {
+    padding: 10px;
+  }
+
+  .phantomToolRail {
+    display: flex;
+  }
+
+  .phantomToolRail span {
+    min-width: 54px;
+  }
+
+  .phantomPhoto::after {
+    bottom: 48px;
+    top: 98px;
+  }
+
+  .phantomPhotoLine.one {
+    left: 70px;
+    top: 196px;
+  }
+
+  .phantomPhotoLine.two {
+    right: 42px;
+    top: 180px;
+    width: 96px;
+  }
+
+  .phantomWound.oval {
+    right: 24px;
+    top: 232px;
+  }
+
+  .phantomScale {
+    left: 108px;
+    top: 150px;
+  }
+
+  .phantomModel {
+    left: 6%;
+    right: 6%;
+  }
+
+  .phantomResultBar {
+    padding: 10px;
   }
 }

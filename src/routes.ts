@@ -1,6 +1,7 @@
 export const routes = {
   home: '/',
   fallAI: '/projects/fallai',
+  phantom3D: '/projects/phantom3d',
 } as const;
 
 export function currentRoute() {

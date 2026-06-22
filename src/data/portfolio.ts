@@ -1,4 +1,5 @@
 import pipelineVisual from '../assets/fallai-pipeline.svg';
+import phantom3DVisual from '../assets/phantom3d-pipeline.svg';
 
 export type Metric = {
   label: string;
@@ -13,6 +14,8 @@ export type MainProject = {
   role: string;
   summary: string;
   visual: string;
+  visualAlt: string;
+  preview: 'fallai' | 'phantom3d';
   links: ProjectLink[];
   stack: string[];
   highlights: string[];
@@ -38,6 +41,7 @@ export type ProjectSummary = {
   role: string;
   stack: string[];
   points: string[];
+  detailLabel: string;
 };
 
 export type SkillGroup = {
@@ -92,6 +96,22 @@ export const portfolio = {
         '하체 가림 상황을 고려한 synthetic occlusion 데이터 검토',
         '중첩 분할 타임라인과 분석 로그로 판단 근거를 화면화',
       ],
+      detailLabel: 'FallAI 상세 보기',
+    },
+    {
+      title: 'phantom3D 피부 팬텀 3D 측정 웹앱',
+      route: '/projects/phantom3d',
+      category: '3D Research Web App',
+      summary:
+        '피부 팬텀 사진과 3D 스캔 모델을 함께 다루며 거리, 상처 깊이, 면적, 둘레, 추정 부피를 측정하는 Three.js 기반 연구용 웹앱입니다.',
+      role: 'Frontend · Three.js Viewer · Measurement UX',
+      stack: ['Three.js', 'WebGL', 'Canvas API', 'PWA', 'WIZ'],
+      points: [
+        '사진 기반 상처 후보 분석으로 추정 높이맵 3D 모델 생성',
+        'GLB, GLTF, OBJ, STL, PLY 스캔 모델 업로드와 표면 포인트 측정 지원',
+        '캘리브레이션, 신뢰도 라벨, PDF/CSV/JSON 리포트 내보내기 구현',
+      ],
+      detailLabel: 'phantom3D 상세 보기',
     },
   ] satisfies ProjectSummary[],
   mainProject: {
@@ -102,6 +122,8 @@ export const portfolio = {
     summary:
       '실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 개인정보 보호를 위해 원본 화면 대신 스켈레톤 중심 표시 구조를 적용하고, 하체가 가려지는 상황을 보완하기 위해 synthetic occlusion 데이터를 생성했습니다. 또한 MediaPipe 입력 경로를 개선하고, 행동분류 모델 학습 및 테스트 구조를 정리했습니다.',
     visual: pipelineVisual,
+    visualAlt: 'AI 행동분류 및 낙상 판단 보조 시스템 파이프라인',
+    preview: 'fallai',
     links: [
       {
         label: '포트폴리오 저장소',
@@ -174,6 +196,94 @@ export const portfolio = {
       '시스템 개선: 실시간 분석, 업로드 분석, 학습 모드, 문서화 구조를 함께 정비',
     ],
   } satisfies MainProject,
+  phantom3DProject: {
+    title: 'phantom3D 피부 팬텀 3D 측정 웹앱',
+    subtitle: '사진 기반 높이맵 추정과 LiDAR/스캔 모델 실측을 구분한 3D 연구용 측정 도구',
+    period: '2026',
+    role: 'Frontend Architecture · Three.js Viewer · 3D Measurement UX',
+    summary:
+      '피부 팬텀의 사진과 3D 스캔 모델을 함께 다루는 연구용 웹앱입니다. 일반 사진은 색상, 경계, 음영 기반 상처 후보 분석을 통해 높이맵 3D 모델로 추정하고, LiDAR 또는 포토그래메트리로 생성된 GLB/GLTF/OBJ/STL/PLY 파일은 실제 메시 geometry로 로드해 거리와 깊이를 측정하도록 구성했습니다. 로그인 없이 바로 측정 화면에 진입하도록 라우팅을 정리하고, 캘리브레이션, 신뢰도 표시, PDF/CSV/JSON 내보내기까지 작업 도구형 UX로 구현했습니다.',
+    visual: phantom3DVisual,
+    visualAlt: 'phantom3D 사진 분석과 3D 측정 처리 흐름',
+    preview: 'phantom3d',
+    links: [
+      {
+        label: '포트폴리오 저장소',
+        href: 'https://github.com/hongsheeya/job-portfolio',
+        description: 'React/Vite 기반 GitHub Pages 포트폴리오 코드',
+      },
+    ],
+    stack: [
+      'JavaScript',
+      'Three.js',
+      'WebGL',
+      'Canvas API',
+      'PWA',
+      'WIZ',
+      'GLTF/OBJ/STL/PLY Loader',
+      'Responsive UI',
+    ],
+    highlights: [
+      '로그인 화면을 제거하고 `/dashboard` 중심의 즉시 진입형 측정 도구로 라우팅 정리',
+      '사진 업로드와 카메라 촬영 후 상처 후보를 분석해 사진 기반 높이맵 3D 모델 생성',
+      'LiDAR/포토그래메트리 스캔 모델 업로드를 위해 GLB, GLTF, OBJ, STL, PLY 포맷 지원',
+      '두 점 거리, 상처 깊이, 면적, 둘레, 추정 부피를 mm 단위로 표시',
+      '기준자/캘리브레이션 마커로 사진 기반 추정값의 스케일 보정 흐름 구현',
+      '측정 신뢰도를 사진 추정, 스케일 보정, LiDAR/스캔 실측 상태로 구분해 표시',
+      'PDF, CSV, JSON 리포트 내보내기와 동일 팬텀의 시간별 변화 비교 기능 구현',
+      'manifest syntax error, favicon, 브라우저 탭 제목, 초기화 상태 잔존 문제 해결',
+    ],
+    metrics: [
+      {
+        label: '3D Input',
+        value: '5 Formats',
+        detail: 'GLB, GLTF, OBJ, STL, PLY 스캔 모델 업로드와 Three.js 로딩 지원',
+      },
+      {
+        label: 'Measurement',
+        value: 'Distance · Depth',
+        detail: '두 점 거리, 상처 깊이, 면적, 둘레, 추정 부피를 한 화면에서 확인',
+      },
+      {
+        label: 'Reliability',
+        value: 'Confidence Label',
+        detail: '사진 추정, 스케일 보정, LiDAR/스캔 실측 상태를 분리해 표시',
+      },
+    ],
+    problem: [
+      '기존 화면은 모든 라우트가 로그인 또는 접근 페이지로 이동해 실제 대시보드와 3D 측정 화면에 바로 진입하기 어려웠습니다.',
+      '일반 사진과 LiDAR/스캔 모델의 신뢰도를 구분하지 않으면 사진 기반 추정값이 실제 3D 실측처럼 오해될 수 있었습니다.',
+      '사진이나 3D 모드 전환 시 화면 높이가 늘어나 하단 측정값이 화면 밖으로 밀리는 사용성 문제가 있었습니다.',
+      '초기화 후 업로드 이미지와 사진 기반 모델 상태가 남아 사용자가 기본 모델로 돌아갔는지 확인하기 어려웠습니다.',
+    ],
+    approach: [
+      '로그인 페이지를 제거하고 `/access`, `/acess`, `/mypage` 접근을 `/dashboard`로 정리해 측정 화면 중심의 흐름으로 바꿨습니다.',
+      '사진 업로드 이미지를 Canvas에 정규화하고 밝기, 채도, 적색 성분, 어두운 영역, 경계 강도로 상처 후보 점수 맵을 계산했습니다.',
+      'connected component 방식으로 상처 후보를 추출하고, 배경이나 이미지 가장자리 오검출을 줄이기 위한 필터를 적용했습니다.',
+      '후보 마스크와 boundary map을 이용해 표면 함몰과 가장자리 융기를 반영한 Three.js 높이맵 메시를 생성했습니다.',
+      'LiDAR/스캔 파일은 실제 메시 geometry로 로드하고, 사진 기반 모델은 추정 모델임을 라벨과 신뢰도 문구로 분리했습니다.',
+    ],
+    pipeline: [
+      '사진 촬영 또는 업로드 후 브라우저 지원 이미지 형식 검증',
+      'Canvas 기반 픽셀 분석으로 상처 후보 점수, 마스크, 경계 맵 생성',
+      '사진 기반 높이맵 geometry 생성 또는 LiDAR/스캔 메시 파일 로드',
+      '3D 뷰어에서 Point A/B, 표면점, 바닥점 선택',
+      '거리, 깊이, 면적, 둘레, 추정 부피 계산 및 신뢰도 표시',
+      'JSON, CSV, PDF 리포트 내보내기와 이전 측정값 비교',
+    ],
+    improvements: [
+      'manifest JSON 응답, favicon, 브라우저 탭 제목을 phantom3D 브랜딩으로 정리',
+      '초기화 버튼이 사진 src, Blob URL, file input, 캘리브레이션, 측정점, Three.js 모델을 함께 비우도록 개선',
+      '사진 기반 모델이 단순 texture overlay처럼 보이지 않도록 상처 후보 기반 높이맵 geometry를 생성하도록 변경',
+      '모바일과 데스크톱에서 하단 결과바가 화면 안에 유지되도록 앱 셸 높이와 패널 구조 조정',
+      'Playwright로 사진 업로드, 초기화, 라우팅, manifest, 반응형 화면을 검증',
+    ],
+    evidence: [
+      '도메인 이해: 일반 사진, 스케일 보정 사진, LiDAR/스캔 모델의 측정 신뢰도를 명확히 구분',
+      '프론트엔드 구현: Three.js 뷰어, Canvas 분석, 파일 업로드, 카메라 촬영, 리포트 내보내기를 단일 작업 흐름으로 연결',
+      '사용성 개선: 로그인 제거, 초기화 상태 정리, 하단 수치 고정, 파일 형식 안내로 반복 측정 도구 UX 강화',
+    ],
+  } satisfies MainProject,
   skills: [
     {
       title: 'AI/Data',
@@ -181,7 +291,7 @@ export const portfolio = {
     },
     {
       title: 'Programming',
-      items: ['Python', 'JavaScript', 'TypeScript', 'HTML/CSS', 'SQL', 'React/Vite'],
+      items: ['Python', 'JavaScript', 'TypeScript', 'HTML/CSS', 'SQL', 'React/Vite', 'Three.js'],
     },
     {
       title: 'Development Environment',

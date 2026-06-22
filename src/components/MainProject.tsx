@@ -1,4 +1,5 @@
 import { FallAIScreenPreview } from './FallAIScreenPreview';
+import { Phantom3DScreenPreview } from './Phantom3DScreenPreview';
 import type { MainProject as MainProjectType } from '../data/portfolio';
 
 type MainProjectProps = {
@@ -48,11 +49,11 @@ export function MainProject({ project }: MainProjectProps) {
           </div>
         </div>
         <div className="projectVisual">
-          <img src={project.visual} alt="AI 행동분류 및 낙상 판단 보조 시스템 파이프라인" />
+          <img src={project.visual} alt={project.visualAlt} />
         </div>
       </div>
 
-      <FallAIScreenPreview />
+      {project.preview === 'fallai' ? <FallAIScreenPreview /> : <Phantom3DScreenPreview />}
 
       <div className="metricGrid">
         {project.metrics.map((metric) => (
