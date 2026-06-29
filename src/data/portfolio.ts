@@ -8,6 +8,18 @@ export type Metric = {
   detail: string;
 };
 
+export type ProofMetric = {
+  label: string;
+  value: string;
+  detail: string;
+};
+
+export type RoleFit = {
+  title: string;
+  summary: string;
+  evidence: string[];
+};
+
 export type MainProject = {
   title: string;
   subtitle: string;
@@ -40,6 +52,7 @@ export type ProjectSummary = {
   category: string;
   summary: string;
   role: string;
+  impact: string;
   stack: string[];
   points: string[];
   detailLabel: string;
@@ -83,6 +96,50 @@ export const portfolio = {
       'AI 개발을 모델 학습에만 두지 않고 서비스 지연, 화면 UX, 결과 기록, 문서화까지 연결해 봅니다.',
     ],
   },
+  proofMetrics: [
+    {
+      label: '전공/성적',
+      value: '3.97 / 4.50',
+      detail: '지능형반도체공학 · 첨단반도체공정장비융합전공',
+    },
+    {
+      label: '어학',
+      value: 'TOEIC 935',
+      detail: '기술 자료 이해와 협업 문서화에 필요한 기본 역량',
+    },
+    {
+      label: '대표 프로젝트',
+      value: 'FallAI',
+      detail: '데이터, 모델, 대시보드, 운영 리포트까지 연결한 AI 서비스형 프로젝트',
+    },
+    {
+      label: '최근 검증',
+      value: 'p95 0.839s',
+      detail: '4카메라 synthetic simulation 320px, 4초 청크 기준',
+    },
+  ] satisfies ProofMetric[],
+  roleFit: [
+    {
+      title: '산업 도메인 이해',
+      summary: '반도체 공정·장비 흐름을 이해하고 데이터 문제로 번역합니다.',
+      evidence: ['지능형반도체공학 전공', '플라즈마 세정/자동화 장비 인턴 경험', 'TGV 패키징 기술 조사'],
+    },
+    {
+      title: 'AI/Data 구현',
+      summary: '모델을 단순 실행이 아니라 입력 feature, 평가 기준, 운영 조건까지 함께 봅니다.',
+      evidence: ['RandomForest/XGBoost 기반 분류', 'YOLO/MediaPipe pose 처리', '성능 병목 리포트 작성'],
+    },
+    {
+      title: '서비스 UX 연결',
+      summary: '분석 결과를 사용자가 이해할 수 있는 화면과 문서로 바꾸는 데 강점이 있습니다.',
+      evidence: ['학습/모델 관리 UI 개선', '스켈레톤 기반 개인정보 노출 완화', 'PDF 포트폴리오 배포 기능'],
+    },
+    {
+      title: '운영 검증/문서화',
+      summary: '성능을 감으로 말하지 않고 RTT, recall, 버전, ETA 같은 지표로 남깁니다.',
+      evidence: ['4카메라 시뮬레이션 보고서', '백그라운드 학습 상태 표시', '프로젝트 사용 설명서 정리'],
+    },
+  ] satisfies RoleFit[],
   featuredProjects: [
     {
       title: 'AI 기반 행동분류 및 낙상 판단 보조 시스템',
@@ -91,11 +148,12 @@ export const portfolio = {
       summary:
         '실시간 자세와 움직임을 분석해 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 프로젝트입니다.',
       role: 'AI/Data Pipeline · Service UX · System Improvement',
+      impact: '모델 성능, 가림 상황, 실시간 RTT, 학습 UX를 함께 다룬 AI 서비스형 프로젝트',
       stack: ['MediaPipe', 'Pose Feature', 'XGBoost', 'RandomForest', 'React'],
       points: [
-        '스켈레톤 중심 표시로 개인정보 노출 부담을 낮춤',
-        '하체 가림 상황을 고려한 synthetic occlusion 데이터 검토',
-        '중첩 분할 타임라인과 분석 로그로 판단 근거를 화면화',
+        '스켈레톤 중심 표시로 개인정보 노출 부담을 낮추고 분석 근거는 유지',
+        '하체 가림과 다중 카메라 조건을 synthetic simulation으로 검증',
+        '학습 진행, 모델 버전, ETA, 성능 병목을 사용자 화면에 노출',
       ],
       detailLabel: 'FallAI 상세 보기',
     },
@@ -106,6 +164,7 @@ export const portfolio = {
       summary:
         '증권사 API, FireGate 포트폴리오, 무한매수 사이클, 거래이력과 PDF 가이드북을 하나의 운영 흐름으로 연결한 주식 자동화 웹서비스입니다.',
       role: 'Full-stack · Broker API Integration · Automation Reliability',
+      impact: '증권사 API와 자동매매 운영 흐름을 사용자별 설정, 거래 이력, 가이드 문서까지 연결한 운영형 서비스',
       stack: ['WIZ', 'Python', 'Angular', 'KIS Open API', 'Toss API', 'FireGate Sync'],
       points: [
         'KIS/토스 증권사 선택형 API 설정과 사용자별 민감 설정 분리',
@@ -121,6 +180,7 @@ export const portfolio = {
       summary:
         '피부 팬텀 사진과 3D 스캔 모델을 함께 다루며 거리, 상처 깊이, 면적, 둘레, 추정 부피를 측정하는 Three.js 기반 연구용 웹앱입니다.',
       role: 'Frontend · Three.js Viewer · Measurement UX',
+      impact: '사진 기반 추정과 실제 3D 스캔 측정을 구분해 연구자가 신뢰도까지 판단할 수 있게 만든 측정 도구',
       stack: ['Three.js', 'WebGL', 'Canvas API', 'PWA', 'WIZ'],
       points: [
         '사진 기반 상처 후보 분석으로 추정 높이맵 3D 모델 생성',
@@ -136,7 +196,7 @@ export const portfolio = {
     period: '2026',
     role: 'AI/Data Pipeline · Frontend UX · System Improvement',
     summary:
-      '실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 개인정보 보호를 위해 원본 화면 대신 스켈레톤 중심 표시 구조를 적용하고, 하체가 가려지는 상황을 보완하기 위해 synthetic occlusion 데이터를 생성했습니다. 또한 MediaPipe 입력 경로를 개선하고, 행동분류 모델 학습 및 테스트 구조를 정리했습니다.',
+      '실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고, 낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 데이터 입력, pose feature, 모델 평가, 학습 상태 표시, 사용자 화면, 운영 리포트까지 연결해 실제 서비스로 이해 가능한 형태를 만드는 데 집중했습니다.',
     visual: pipelineVisual,
     visualAlt: 'AI 행동분류 및 낙상 판단 보조 시스템 파이프라인',
     preview: 'fallai',
@@ -145,6 +205,16 @@ export const portfolio = {
         label: '포트폴리오 저장소',
         href: 'https://github.com/hongsheeya/job-portfolio',
         description: 'React/Vite 기반 GitHub Pages 포트폴리오 코드',
+      },
+      {
+        label: '교수님용 코드 설명',
+        href: 'https://github.com/hongsheeya/job-portfolio/blob/main/docs/code-overview-for-professor.md',
+        description: '웹사이트 구조와 코드 역할을 비전공자도 이해하기 쉽게 정리',
+      },
+      {
+        label: '서버 복구 가이드',
+        href: 'https://github.com/hongsheeya/job-portfolio/blob/main/docs/server-restore-guide.md',
+        description: '다른 서버에서 같은 포트폴리오 페이지를 복구하는 절차',
       },
     ],
     stack: [
@@ -167,19 +237,19 @@ export const portfolio = {
     ],
     metrics: [
       {
-        label: 'Privacy First',
-        value: 'Skeleton View',
-        detail: '원본 영상 노출을 줄이고 판단에 필요한 자세 정보 중심으로 표시',
+        label: 'RF-Fall',
+        value: 'F1 98.1%',
+        detail: '낙상 판단 운영 모델 기준 성능 지표를 대시보드에 연결',
       },
       {
-        label: 'Data Robustness',
-        value: 'Occlusion Data',
-        detail: '하체 가림 상황을 synthetic 데이터로 보완',
+        label: 'XG-Posture',
+        value: 'F1 94.3%',
+        detail: '자세 분류 결과를 낙상 판단 설명 근거로 활용',
       },
       {
-        label: 'Decision Support',
-        value: 'Fall Evidence',
-        detail: '행동분류 결과를 낙상 판단 보조 근거로 확장',
+        label: '4-Camera Sim',
+        value: 'p95 0.839s',
+        detail: '4대 코너 카메라 synthetic simulation 320px 기준 RTT',
       },
     ],
     problem: [
@@ -204,6 +274,7 @@ export const portfolio = {
       '업로드 분석 타임라인을 중첩 분할 기준에 맞춰 정리',
       '학습 데이터 등록 흐름과 모델별 학습 자료 선택 UX 개선',
       '모델 학습 상태, 최근 갱신, ETA 표시를 대시보드에서 확인 가능하도록 개선',
+      '일반 사용자가 모델 관리 화면을 이해할 수 있도록 상태/등록/감도/고급 관리 모드 분리',
       '현재 모델 구조에 맞춰 파이프라인 설명과 사용 설명서를 최신화',
     ],
     evidence: [
@@ -479,6 +550,8 @@ export const portfolio = {
       { label: 'Phone', href: 'tel:01056575945' },
       { label: 'GitHub', href: 'https://github.com/hongsheeya' },
       { label: 'Portfolio Repo', href: 'https://github.com/hongsheeya/job-portfolio' },
+      { label: 'Code Overview', href: 'https://github.com/hongsheeya/job-portfolio/blob/main/docs/code-overview-for-professor.md' },
+      { label: 'Restore Guide', href: 'https://github.com/hongsheeya/job-portfolio/blob/main/docs/server-restore-guide.md' },
     ],
   },
 };

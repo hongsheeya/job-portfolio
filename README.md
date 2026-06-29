@@ -2,6 +2,13 @@
 
 AI/Data/IT 서비스기획 직무 지원용 GitHub Pages 포트폴리오입니다. 전체 포트폴리오 홈에서 핵심 프로젝트를 요약하고, **AI 기반 행동분류 및 낙상 판단 보조 시스템**과 **phantom3D 피부 팬텀 3D 측정 웹앱**은 별도 상세 라우트에서 깊게 설명합니다.
 
+## 교수님/검토자용 빠른 링크
+
+- 배포 페이지: <https://hongsheeya.github.io/job-portfolio/#/>
+- FallAI 상세: <https://hongsheeya.github.io/job-portfolio/#/projects/fallai>
+- 코드 설명: [docs/code-overview-for-professor.md](docs/code-overview-for-professor.md)
+- 서버 복구 가이드: [docs/server-restore-guide.md](docs/server-restore-guide.md)
+
 ## 실행 방법
 
 ```bash
@@ -45,11 +52,18 @@ npm run deploy
 ## 프로젝트 구조
 
 ```text
+docs/
+ ├─ code-overview-for-professor.md
+ └─ server-restore-guide.md
+public/
+ ├─ byun-giguk-resume.html
+ └─ byun-giguk-resume.pdf
 src/
  ├─ data/
  │   └─ portfolio.ts
  ├─ components/
  │   ├─ Hero.tsx
+ │   ├─ ProfileSnapshot.tsx
  │   ├─ MainProject.tsx
  │   ├─ FeaturedProjects.tsx
  │   ├─ FallAIScreenPreview.tsx
@@ -70,11 +84,13 @@ src/
 
 포트폴리오의 이름, 연락처, 기술 스택, 경험, 프로젝트 요약과 상세 데이터는 `src/data/portfolio.ts`에서 관리합니다.
 
+- 첫 화면 요약/핵심 수치: `proofMetrics`, `roleFit`
 - 전체 포트폴리오 홈: `featuredProjects`의 요약 카드 사용
 - FallAI 상세 페이지: `mainProject`의 문제 정의, 구현 근거, 파이프라인, 개선 경험 사용
 - phantom3D 상세 페이지: `phantom3DProject`의 3D 뷰어, 사진 기반 분석, LiDAR/스캔 측정 구조 사용
 - FallAI 구동 화면형 UI: `src/components/FallAIScreenPreview.tsx`
 - phantom3D 작업 화면형 UI: `src/components/Phantom3DScreenPreview.tsx`
+- PDF 출력용 문서: `src/components/PortfolioPdf.tsx`
 
 ## 현재 메인 프로젝트
 

@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변기국 이력서</title>
+    <style>
+      @font-face {
+        font-family: "ResumeSans";
+        src: url("file:///usr/share/fonts/truetype/nanum/NanumGothic.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "ResumeSans";
+        src: url("file:///usr/share/fonts/truetype/nanum/NanumGothicBold.ttf") format("truetype");
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: "ResumeSans";
+        src: url("file:///usr/share/fonts/truetype/nanum/NanumGothicExtraBold.ttf") format("truetype");
+        font-weight: 800;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: #eef2f5;
+        color: #17191f;
+        font-family: "ResumeSans", "NanumGothic", "Apple SD Gothic Neo", sans-serif;
+        font-size: 10.2px;
+        line-height: 1.46;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        padding: 13.5mm 14.5mm;
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
+        break-after: page;
+      }
+
+      .page:last-child {
+        break-after: auto;
+      }
+
+      .topline {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, #0c7c59 0%, #1d9bd1 55%, #1f2937 100%);
+        border-radius: 999px;
+        margin-bottom: 14px;
+      }
+
+      .header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: start;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #d9e1e8;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 29px;
+        line-height: 1;
+        letter-spacing: 0;
+        font-weight: 800;
+      }
+
+      .role {
+        margin-top: 8px;
+        color: #0c7c59;
+        font-size: 12.6px;
+        font-weight: 800;
+      }
+
+      .headline {
+        margin: 8px 0 0;
+        max-width: 118mm;
+        color: #4b5563;
+        font-size: 10.5px;
+      }
+
+      .contact {
+        display: grid;
+        gap: 3px;
+        color: #343a40;
+        font-size: 9.4px;
+        line-height: 1.42;
+        min-width: 58mm;
+      }
+
+      .contact a {
+        color: #1b5e80;
+        text-decoration: none;
+      }
+
+      .summary-band {
+        display: grid;
+        grid-template-columns: 1.7fr 1fr;
+        gap: 11px;
+        margin-top: 12px;
+      }
+
+      .summary-box {
+        border: 1px solid #d9e7e1;
+        background: #f6fbf8;
+        border-radius: 8px;
+        padding: 10px 11px;
+      }
+
+      .summary-box strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #0b6f50;
+        font-size: 10.2px;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+
+      .stat {
+        border: 1px solid #e1e6ec;
+        border-radius: 8px;
+        padding: 8px;
+        min-height: 44px;
+      }
+
+      .stat .label {
+        color: #6b7280;
+        font-size: 8.4px;
+        font-weight: 700;
+      }
+
+      .stat .value {
+        margin-top: 3px;
+        color: #111827;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .section {
+        margin-top: 13px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 8px;
+        color: #111827;
+        font-size: 12.7px;
+        font-weight: 800;
+      }
+
+      .section-title::before {
+        content: "";
+        width: 5px;
+        height: 16px;
+        border-radius: 999px;
+        background: #0c7c59;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+
+      .skill-card,
+      .project-card,
+      .item-card {
+        border: 1px solid #e0e6ec;
+        border-radius: 8px;
+        padding: 9px 10px;
+        background: #ffffff;
+      }
+
+      .skill-card h3,
+      .project-card h3,
+      .item-card h3 {
+        margin: 0 0 5px;
+        color: #222832;
+        font-size: 10.8px;
+        font-weight: 800;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .tag {
+        padding: 2.5px 6px;
+        border-radius: 999px;
+        background: #edf7f4;
+        color: #106b51;
+        font-size: 8.5px;
+        font-weight: 700;
+      }
+
+      .project-card {
+        padding: 11px 12px;
+      }
+
+      .meta {
+        color: #667085;
+        font-size: 9px;
+        font-weight: 700;
+      }
+
+      .project-lead {
+        margin: 7px 0 9px;
+        color: #374151;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 14px;
+      }
+
+      li {
+        margin: 2.5px 0;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+        margin-top: 9px;
+      }
+
+      .metric {
+        border-radius: 8px;
+        background: #f4f7fb;
+        padding: 8px;
+        min-height: 50px;
+      }
+
+      .metric strong {
+        display: block;
+        color: #182230;
+        font-size: 9.7px;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 3px;
+        color: #667085;
+        font-size: 8.4px;
+      }
+
+      .experience {
+        display: grid;
+        gap: 8px;
+      }
+
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
+
+      .period {
+        color: #0c7c59;
+        font-size: 8.8px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .desc {
+        margin: 0 0 4px;
+        color: #4b5563;
+      }
+
+      .compact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+
+      .footer {
+        position: absolute;
+        left: 14.5mm;
+        right: 14.5mm;
+        bottom: 9mm;
+        color: #8a94a3;
+        font-size: 8px;
+        text-align: right;
+      }
+
+      @media print {
+        html,
+        body {
+          background: #ffffff;
+        }
+
+        .page {
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <div class="topline"></div>
+      <header class="header">
+        <div>
+          <h1>변기국</h1>
+          <div class="role">AI/Data · DT/AX · 제조/반도체 데이터 활용 지원자</div>
+          <p class="headline">
+            반도체 공정·장비 이해와 AI/Data 프로젝트 경험을 연결해 산업 현장의 문제를
+            데이터와 서비스로 풀어가는 지원자입니다.
+          </p>
+        </div>
+        <div class="contact">
+          <div><strong>Email</strong> · <a href="mailto:gigukbyun@korea.ac.kr">gigukbyun@korea.ac.kr</a></div>
+          <div><strong>Phone</strong> · <a href="tel:01056575945">010-5657-5945</a></div>
+          <div><strong>GitHub</strong> · <a href="https://github.com/hongsheeya">github.com/hongsheeya</a></div>
+          <div><strong>Portfolio</strong> · <a href="https://hongsheeya.github.io/job-portfolio/#/">hongsheeya.github.io/job-portfolio</a></div>
+          <div><strong>TOEIC</strong> · 935</div>
+        </div>
+      </header>
+
+      <div class="summary-band">
+        <div class="summary-box">
+          <strong>Profile</strong>
+          지능형반도체공학 전공과 인턴십을 통해 공정·장비·데이터의 흐름을 익혔고,
+          AI 행동분류 프로젝트에서는 데이터 정리, 모델 검토, 서비스 화면 개선, 결과 문서화까지
+          함께 다뤘습니다. 모델 학습 결과를 서비스 지연, 화면 UX, 분석 로그, 운영 문서로
+          연결하는 데 강점이 있습니다.
+        </div>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="label">Education</div>
+            <div class="value">고려대학교 세종캠퍼스</div>
+          </div>
+          <div class="stat">
+            <div class="label">Major</div>
+            <div class="value">지능형반도체공학</div>
+          </div>
+          <div class="stat">
+            <div class="label">Graduation</div>
+            <div class="value">2026.08 예정</div>
+          </div>
+          <div class="stat">
+            <div class="label">GPA</div>
+            <div class="value">3.97 / 4.50</div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Core Skills</h2>
+        <div class="grid-2">
+          <div class="skill-card">
+            <h3>AI/Data</h3>
+            <div class="tags">
+              <span class="tag">RandomForest</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">YOLO/MediaPipe</span>
+              <span class="tag">Pose Feature</span>
+              <span class="tag">pandas</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Model Evaluation</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Programming / Service</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">SQL</span>
+              <span class="tag">React/Vite</span>
+              <span class="tag">HTML/CSS</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Development Environment</h3>
+            <div class="tags">
+              <span class="tag">WIZ</span>
+              <span class="tag">VS Code Remote SSH</span>
+              <span class="tag">OpenAI Codex</span>
+              <span class="tag">GitHub Copilot</span>
+              <span class="tag">Cursor AI</span>
+              <span class="tag">Git/GitHub</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Domain</h3>
+            <div class="tags">
+              <span class="tag">반도체 공정</span>
+              <span class="tag">반도체 패키징</span>
+              <span class="tag">플라즈마 세정</span>
+              <span class="tag">DBD 전극</span>
+              <span class="tag">공정 자동화</span>
+              <span class="tag">데이터 전처리</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Main Project</h2>
+        <div class="project-card">
+          <div class="item-head">
+            <h3>AI 기반 행동분류 및 낙상 판단 보조 시스템</h3>
+            <span class="period">2026</span>
+          </div>
+          <div class="meta">AI/Data Pipeline · Frontend UX · System Improvement</div>
+          <p class="project-lead">
+            실시간 영상에서 사람의 자세와 움직임을 분석하여 행동 상태를 분류하고,
+            낙상 판단의 보조 근거를 제공하는 AI 프로젝트입니다. 개인정보 보호를 위해 원본 화면 대신
+            스켈레톤 중심 표시 구조를 적용하고, 하체가 가려지는 상황을 보완하기 위해
+            synthetic occlusion 데이터를 생성했습니다.
+          </p>
+          <div class="grid-2">
+            <div>
+              <h3>핵심 수행</h3>
+              <ul>
+                <li>MediaPipe 기반 keypoint 추출 흐름과 행동분류 모델 입력 feature 구조 정리</li>
+                <li>RandomForest/XGBoost 기반 행동분류 모델 학습 및 테스트 구조 검토</li>
+                <li>스켈레톤 중심 표시와 원본/스켈레톤 전환 UI로 검증 편의성과 개인정보 보호 동시 고려</li>
+                <li>4초 창과 2초 stride 기반 중첩 분할로 영상 경계 부근 낙상 근거 누락 완화</li>
+              </ul>
+            </div>
+            <div>
+              <h3>개선 관점</h3>
+              <ul>
+                <li>하체 가림 상황을 고려한 synthetic occlusion 데이터 생성 및 검토</li>
+                <li>학습 데이터 등록 흐름과 모델별 자료 선택 UX 개선</li>
+                <li>실시간 분석, 업로드 분석, 학습 모드, 모델 상태/ETA 표시 구조 정비</li>
+                <li>분석 결과를 판단 근거와 운영 문서로 남길 수 있도록 화면·문서 구조 개선</li>
+              </ul>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <strong>Skeleton View</strong>
+              <span>원본 영상 노출을 줄이고 판단에 필요한 자세 정보 중심으로 표시</span>
+            </div>
+            <div class="metric">
+              <strong>Occlusion Data</strong>
+              <span>하체 가림 상황을 synthetic 데이터로 보완해 검토 범위 확장</span>
+            </div>
+            <div class="metric">
+              <strong>Fall Evidence</strong>
+              <span>행동분류 결과를 낙상 판단 보조 근거로 연결</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">변기국 Resume · Page 1 / 2</div>
+    </section>
+
+    <section class="page">
+      <div class="topline"></div>
+      <section class="section" style="margin-top: 0">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience">
+          <div class="item-card">
+            <div class="item-head">
+              <h3>주식회사 시즌 AI연구센터 연구전략팀 인턴</h3>
+              <span class="period">2026.03 ~ 현재</span>
+            </div>
+            <p class="desc">
+              WIZ 기반 풀스택 엔지니어링과 AI 연구개발 보조 업무를 수행하며 화면, 데이터 연동,
+              행동분류 모델 개발 자료를 함께 정리했습니다.
+            </p>
+            <ul>
+              <li>WIZ 기반 화면 구성, 기능 구현, 데이터 연동 구조 확인 및 수정</li>
+              <li>행동분류 모델 개발 프로젝트 데이터 정리, 변수 확인, 결과 기록</li>
+              <li>교통 AI 원천 데이터 전처리와 분석 가능한 변수 구조 정리</li>
+            </ul>
+          </div>
+
+          <div class="item-card">
+            <div class="item-head">
+              <h3>AI 행동분류 프로젝트 개선</h3>
+              <span class="period">2026</span>
+            </div>
+            <p class="desc">
+              행동분류와 낙상 판단 보조 시스템의 데이터, 모델, 화면, 문서 구조를 연결해 개선했습니다.
+            </p>
+            <ul>
+              <li>실시간 영상 분석 화면에서 원본/스켈레톤 전환 구조 검토</li>
+              <li>학습 데이터 등록과 모델별 자료 선택 흐름 정리</li>
+              <li>분할 타임라인, 모델 상태, ETA, 파이프라인 문서 최신화</li>
+            </ul>
+          </div>
+
+          <div class="item-card">
+            <div class="item-head">
+              <h3>지비티아이앤씨 연구개발팀 인턴</h3>
+              <span class="period">2025.07 ~ 2025.08</span>
+            </div>
+            <p class="desc">
+              반도체 플라즈마 세정과 자동화 로봇 관련 업무를 경험하며 실험 준비, 결과 정리,
+              장비 이해를 쌓았습니다.
+            </p>
+            <ul>
+              <li>DBD 전극 제조 보조, 연구 실험 준비 및 결과 정리</li>
+              <li>AGV, AMR, 협동로봇 등 자동화 장비 업무 흐름 이해</li>
+              <li>Cursor AI를 활용한 반복 업무 효율화 프로그램 제작 경험</li>
+            </ul>
+          </div>
+
+          <div class="compact-grid">
+            <div class="item-card">
+              <div class="item-head">
+                <h3>반도체 패키징 기술 조사 및 리뷰 논문</h3>
+                <span class="period">학부 프로젝트</span>
+              </div>
+              <p class="desc">
+                캡스톤디자인에서 TGV 기반 첨단 패키징 기술을 조사하며 공정과 신호 전달 특성을
+                함께 검토했습니다.
+              </p>
+              <ul>
+                <li>TGV 기술 개념과 TSV 대비 유리 기판 기반 패키징 장점 조사</li>
+                <li>기생 커패시턴스 감소와 전기적 손실 완화 가능성 정리</li>
+              </ul>
+            </div>
+
+            <div class="item-card">
+              <div class="item-head">
+                <h3>신설 학과 초대 학생회장</h3>
+                <span class="period">학부 재학 중 3년</span>
+              </div>
+              <p class="desc">
+                학과 운영 체계와 학생 문화를 만들어가며 의견 수렴, 교수진 협의, 행사 기획을 주도했습니다.
+              </p>
+              <ul>
+                <li>학생회 조직, 학과 회칙 제정, 운영 체계 수립</li>
+                <li>간담회, 교류 행사, 소모임, 학과 최초 학술제 개최</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education & Fit</h2>
+        <div class="compact-grid">
+          <div class="item-card">
+            <h3>고려대학교 세종캠퍼스 지능형반도체공학과</h3>
+            <p class="desc">2026.08 졸업예정 · 첨단반도체공정장비융합전공 · GPA 3.97 / 4.50</p>
+            <ul>
+              <li>반도체 공정·패키징·장비 데이터에 대한 도메인 이해 기반 보유</li>
+              <li>AI/Data 프로젝트를 실제 서비스 화면과 운영 문서로 연결한 경험 보유</li>
+            </ul>
+          </div>
+          <div class="item-card">
+            <h3>관심 직무</h3>
+            <p class="desc">AI/Data, DT/AX, 제조·반도체 데이터 활용, 공정/장비 데이터 분석, AI 서비스 개발</p>
+            <ul>
+              <li>현장 데이터의 구조를 이해하고 모델 입력 feature로 정리하는 역할 지향</li>
+              <li>성능 지표뿐 아니라 사용성, 지연, 로그, 배포 흐름까지 함께 개선</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Selected Keywords</h2>
+        <div class="skill-card">
+          <div class="tags">
+            <span class="tag">AI 행동분류</span>
+            <span class="tag">낙상 판단 보조</span>
+            <span class="tag">실시간 자세 분석</span>
+            <span class="tag">MediaPipe Keypoints</span>
+            <span class="tag">Pose Feature Engineering</span>
+            <span class="tag">Synthetic Occlusion</span>
+            <span class="tag">Model Monitoring</span>
+            <span class="tag">Dashboard UX</span>
+            <span class="tag">제조 데이터</span>
+            <span class="tag">반도체 공정</span>
+            <span class="tag">공정 자동화</span>
+            <span class="tag">서비스 문서화</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">변기국 Resume · Page 2 / 2</div>
+    </section>
+  </body>
+</html>

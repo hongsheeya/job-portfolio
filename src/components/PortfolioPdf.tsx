@@ -9,7 +9,18 @@ const detailSections = [
 ] as const;
 
 export function PortfolioPdf() {
-  const { person, about, mainProject, phantom3DProject, infinityStockProject, skills, experience, contact } = portfolio;
+  const {
+    person,
+    about,
+    proofMetrics,
+    roleFit,
+    mainProject,
+    phantom3DProject,
+    infinityStockProject,
+    skills,
+    experience,
+    contact,
+  } = portfolio;
 
   return (
     <article className="portfolioPdfDocument" aria-label="PDF 출력용 포트폴리오">
@@ -49,11 +60,38 @@ export function PortfolioPdf() {
             <li key={item}>{item}</li>
           ))}
         </ul>
+        <div className="pdfMetricGrid">
+          {proofMetrics.map((metric) => (
+            <div className="pdfMetric" key={metric.label}>
+              <span>{metric.label}</span>
+              <strong>{metric.value}</strong>
+              <p>{metric.detail}</p>
+            </div>
+          ))}
+        </div>
         <div className="pdfSkillGrid">
           {skills.map((group) => (
             <div className="pdfMiniCard" key={group.title}>
               <h3>{group.title}</h3>
               <p>{group.items.join(' · ')}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="pdfPage">
+        <p className="pdfKicker">Role Fit</p>
+        <h2>지원 직무와 연결되는 근거</h2>
+        <div className="pdfDetailGrid">
+          {roleFit.map((item) => (
+            <div className="pdfDetailCard" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              <ol>
+                {item.evidence.map((evidence) => (
+                  <li key={evidence}>{evidence}</li>
+                ))}
+              </ol>
             </div>
           ))}
         </div>

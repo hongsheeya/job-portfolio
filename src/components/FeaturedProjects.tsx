@@ -27,6 +27,10 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             <div className="projectMeta">
               <span>{project.role}</span>
             </div>
+            <div className="projectImpact">
+              <span>Impact</span>
+              <strong>{project.impact}</strong>
+            </div>
             <ul className="checkList compact">
               {project.points.map((point) => (
                 <li key={point}>{point}</li>

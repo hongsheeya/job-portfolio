@@ -20,6 +20,7 @@ type HeroProps = {
 };
 
 const navItems = [
+  { label: 'Snapshot', href: '#snapshot-title' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'FallAI', href: appHref(routes.fallAI) },
@@ -60,6 +61,9 @@ export function Hero({ person }: HeroProps) {
               프로젝트 보기
             </a>
             <PdfExportButton className="secondaryButton" />
+            <a className="secondaryButton" href={`${import.meta.env.BASE_URL}byun-giguk-resume.pdf`}>
+              이력서 PDF
+            </a>
             <a className="secondaryButton" href={`mailto:${person.email}`}>
               연락하기
             </a>
